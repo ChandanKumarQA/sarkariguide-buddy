@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { 
   Building2, 
   Train, 
@@ -82,13 +83,18 @@ const JobCategories = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-4">
-            Browse Jobs by Category
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore government job opportunities across various sectors and departments
-          </p>
+        <div className="flex flex-col md:flex-row items-center justify-between mb-12">
+          <div className="text-center md:text-left">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Browse Jobs by Category
+            </h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Explore government job opportunities across various sectors and departments
+            </p>
+          </div>
+          <Button className="mt-4 md:mt-0 bg-primary hover:bg-primary/90">
+            View All Categories
+          </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

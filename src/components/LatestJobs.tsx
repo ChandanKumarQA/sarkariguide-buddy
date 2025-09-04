@@ -61,7 +61,7 @@ const LatestJobs = () => {
   return (
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-4">
           <div>
             <h2 className="text-3xl font-bold text-foreground mb-2">
               Latest Job Notifications
@@ -70,10 +70,15 @@ const LatestJobs = () => {
               Fresh government job openings updated daily
             </p>
           </div>
-          <Button variant="outline">
-            View All Jobs
-            <ExternalLink className="ml-2 h-4 w-4" />
-          </Button>
+          <div className="flex gap-3">
+            <Button variant="outline">
+              View All Jobs
+              <ExternalLink className="ml-2 h-4 w-4" />
+            </Button>
+            <Button className="bg-secondary hover:bg-secondary/90">
+              Subscribe to Alerts
+            </Button>
+          </div>
         </div>
 
         <div className="grid gap-6">

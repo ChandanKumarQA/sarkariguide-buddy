@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import JobCategories from "@/components/JobCategories";
 import LatestJobs from "@/components/LatestJobs";
+import QuickActions from "@/components/QuickActions";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -11,6 +12,7 @@ const Index = () => {
       <HeroSection />
       <JobCategories />
       <LatestJobs />
+      <QuickActions />
       <Footer />
     </div>
   );

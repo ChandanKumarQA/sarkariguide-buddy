@@ -28,6 +28,11 @@ const HeroSection = () => {
                 Check Results
               </Button>
             </div>
+            <div className="mt-6">
+              <Button variant="ghost" className="text-primary hover:text-primary/80 font-semibold">
+                View All Job Categories →
+              </Button>
+            </div>
           </div>
 
           {/* Right Content - Stats Cards */}
