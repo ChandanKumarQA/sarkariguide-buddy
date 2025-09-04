@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { 
   Building2, 
   Train, 
@@ -20,6 +21,7 @@ const categories = [
     description: "Indian Railways recruitment notifications",
     color: "bg-blue-500",
     lightColor: "bg-blue-50",
+    link: "/railway-jobs",
   },
   {
     title: "Banking",
@@ -28,6 +30,7 @@ const categories = [
     description: "SBI, IBPS, RBI job notifications",
     color: "bg-green-500",
     lightColor: "bg-green-50",
+    link: "#",
   },
   {
     title: "Defence",
@@ -36,6 +39,7 @@ const categories = [
     description: "Army, Navy, Air Force recruitments",
     color: "bg-red-500",
     lightColor: "bg-red-50",
+    link: "#",
   },
   {
     title: "Teaching",
@@ -44,6 +48,7 @@ const categories = [
     description: "Teaching jobs in govt schools & colleges",
     color: "bg-purple-500",
     lightColor: "bg-purple-50",
+    link: "#",
   },
   {
     title: "SSC Jobs",
@@ -52,6 +57,7 @@ const categories = [
     description: "Staff Selection Commission posts",
     color: "bg-orange-500",
     lightColor: "bg-orange-50",
+    link: "#",
   },
   {
     title: "Healthcare",
@@ -60,6 +66,7 @@ const categories = [
     description: "Medical officer & nursing positions",
     color: "bg-pink-500",
     lightColor: "bg-pink-50",
+    link: "#",
   },
   {
     title: "Judicial",
@@ -68,6 +75,7 @@ const categories = [
     description: "Court clerk & judicial officer posts",
     color: "bg-indigo-500",
     lightColor: "bg-indigo-50",
+    link: "#",
   },
   {
     title: "UPSC",
@@ -76,6 +84,7 @@ const categories = [
     description: "Civil services & IAS/IPS positions",
     color: "bg-teal-500",
     lightColor: "bg-teal-50",
+    link: "#",
   },
 ];
 
@@ -100,30 +109,62 @@ const JobCategories = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => {
             const IconComponent = category.icon;
-            return (
-              <Card 
-                key={index} 
-                className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer border border-border"
-              >
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <div className={`p-3 rounded-lg ${category.lightColor}`}>
-                      <IconComponent className={`h-6 w-6 text-${category.color.split('-')[1]}-500`} />
+            
+            if (category.link === "#") {
+              return (
+                <Card 
+                  key={index} 
+                  className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer border border-border"
+                >
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <div className={`p-3 rounded-lg ${category.lightColor}`}>
+                        <IconComponent className={`h-6 w-6 text-${category.color.split('-')[1]}-500`} />
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {category.count} jobs
+                      </Badge>
                     </div>
-                    <Badge variant="secondary" className="text-xs">
-                      {category.count} jobs
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                    {category.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {category.description}
-                  </p>
-                </CardContent>
-              </Card>
+                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                      {category.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      {category.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            }
+            
+            return (
+              <Link 
+                key={index} 
+                to={category.link}
+                className="group hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer border border-border block no-underline rounded-lg"
+              >
+                <Card className="h-full border-none shadow-none">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between">
+                      <div className={`p-3 rounded-lg ${category.lightColor}`}>
+                        <IconComponent className={`h-6 w-6 text-${category.color.split('-')[1]}-500`} />
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {category.count} jobs
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                      {category.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">
+                      {category.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             );
           })}
         </div>

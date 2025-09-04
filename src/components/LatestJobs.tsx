@@ -13,6 +13,7 @@ const jobs = [
     status: "Active",
     category: "Railway",
     salaryRange: "₹35,400 - ₹1,12,400",
+    applicationUrl: "https://www.rrbcdg.gov.in/",
   },
   {
     title: "SSC Combined Graduate Level Examination 2024",
@@ -23,6 +24,7 @@ const jobs = [
     status: "Closing Soon",
     category: "SSC",
     salaryRange: "₹29,200 - ₹92,300",
+    applicationUrl: "https://ssc.nic.in/",
   },
   {
     title: "IBPS Clerk Recruitment 2024",
@@ -33,6 +35,7 @@ const jobs = [
     status: "Active",
     category: "Banking",
     salaryRange: "₹19,900 - ₹63,200",
+    applicationUrl: "https://www.ibps.in/",
   },
   {
     title: "AIIMS Staff Nurse Recruitment",
@@ -43,6 +46,7 @@ const jobs = [
     status: "Active",
     category: "Healthcare",
     salaryRange: "₹25,500 - ₹81,100",
+    applicationUrl: "https://www.aiims.edu/",
   },
 ];
 
@@ -125,7 +129,11 @@ const LatestJobs = () => {
                     <Button variant="outline" size="sm">
                       View Details
                     </Button>
-                    <Button size="sm" className="bg-primary hover:bg-primary/90">
+                    <Button 
+                      size="sm" 
+                      className="bg-primary hover:bg-primary/90"
+                      onClick={() => window.open(job.applicationUrl, '_blank')}
+                    >
                       Apply Now
                     </Button>
                   </div>
