@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 import { 
   FileText, 
   Download, 
@@ -17,13 +18,15 @@ const QuickActions = () => {
       description: "Download latest job application forms",
       color: "bg-blue-500",
       lightColor: "bg-blue-50",
+      link: "/",
     },
     {
       icon: Download,
-      title: "Admit Cards",
+      title: "Admit Cards", 
       description: "Download your exam admit cards",
       color: "bg-green-500",
       lightColor: "bg-green-50",
+      link: "/",
     },
     {
       icon: Calendar,
@@ -31,6 +34,7 @@ const QuickActions = () => {
       description: "View upcoming exam dates",
       color: "bg-purple-500",
       lightColor: "bg-purple-50",
+      link: "/exam-calendar",
     },
     {
       icon: Bell,
@@ -38,6 +42,7 @@ const QuickActions = () => {
       description: "Set up personalized job notifications",
       color: "bg-orange-500",
       lightColor: "bg-orange-50",
+      link: "/",
     },
     {
       icon: Search,
@@ -45,6 +50,7 @@ const QuickActions = () => {
       description: "Advanced job search filters",
       color: "bg-red-500",
       lightColor: "bg-red-50",
+      link: "/job-search",
     },
     {
       icon: BookOpen,
@@ -52,6 +58,7 @@ const QuickActions = () => {
       description: "Free study materials and guides",
       color: "bg-teal-500",
       lightColor: "bg-teal-50",
+      link: "/",
     },
   ];
 
@@ -92,9 +99,11 @@ const QuickActions = () => {
                       <p className="text-sm text-muted-foreground mb-4">
                         {action.description}
                       </p>
-                      <Button variant="ghost" size="sm" className="p-0 h-auto text-primary hover:text-primary/80">
-                        Access Now →
-                      </Button>
+                      <Link to={action.link}>
+                        <Button variant="ghost" size="sm" className="p-0 h-auto text-primary hover:text-primary/80">
+                          Access Now →
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </CardContent>
