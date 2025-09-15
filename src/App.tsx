@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import RailwayJobs from "./pages/RailwayJobs";
 import JobSearch from "./pages/JobSearch";
 import ExamCalendar from "./pages/ExamCalendar";
+import StudyMaterials from "./pages/StudyMaterials";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/railway-jobs" element={<RailwayJobs />} />
           <Route path="/job-search" element={<JobSearch />} />
           <Route path="/exam-calendar" element={<ExamCalendar />} />
+          <Route path="/study-materials" element={<StudyMaterials />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

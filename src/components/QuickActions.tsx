@@ -58,7 +58,7 @@ const QuickActions = () => {
       description: "Free study materials and guides",
       color: "bg-teal-500",
       lightColor: "bg-teal-50",
-      link: "/",
+      link: "/study-materials",
     },
   ];
 
