@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Search, Bell, User } from "lucide-react";
+import { Search } from "lucide-react";
 
 const Header = () => {
   return (
@@ -41,13 +41,6 @@ const Header = () => {
             <Button variant="ghost" size="sm" className="hidden md:flex">
               <Search className="h-4 w-4" />
               <span className="ml-2">Search</span>
-            </Button>
-            <Button variant="ghost" size="sm">
-              <Bell className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="sm">
-              <User className="h-4 w-4" />
-              <span className="ml-2 hidden md:inline">Login</span>
             </Button>
           </div>
         </div>
