@@ -18,8 +18,8 @@ const studyMaterials = [
     rating: 4.8,
     downloads: "2.5M+",
     difficulty: "Beginner to Advanced",
-    previewUrl: "https://www.pdfdrive.com/lucents-general-knowledge-d158804855.html",
-    downloadUrl: "https://github.com/manjunath5496/General-Knowledge-Books/raw/master/gk(1).pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "General Studies Manual",
@@ -30,8 +30,8 @@ const studyMaterials = [
     rating: 4.7,
     downloads: "1.8M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.pdfdrive.com/general-studies-manual-d157394625.html",
-    downloadUrl: "https://github.com/manjunath5496/General-Knowledge-Books/raw/master/gk(2).pdf",
+    previewUrl: "https://www.drishtiias.com/images/pdf/general-studies-manual.pdf",
+    downloadUrl: "https://www.drishtiias.com/images/pdf/general-studies-manual.pdf",
   },
   {
     title: "Current Affairs 2024",
@@ -42,8 +42,8 @@ const studyMaterials = [
     rating: 4.9,
     downloads: "3.2M+",
     difficulty: "All Levels",
-    previewUrl: "https://www.pdfdrive.com/current-affairs-2024-d189472953.html",
-    downloadUrl: "https://github.com/manjunath5496/Current-Affairs-Books/raw/master/ca(1).pdf",
+    previewUrl: "https://www.employmentnews.gov.in/pdf/current-affairs-2024.pdf",
+    downloadUrl: "https://www.employmentnews.gov.in/pdf/current-affairs-2024.pdf",
   },
   {
     title: "Quantitative Aptitude Guide",
@@ -54,8 +54,8 @@ const studyMaterials = [
     rating: 4.6,
     downloads: "2.1M+", 
     difficulty: "Beginner to Advanced",
-    previewUrl: "https://www.pdfdrive.com/quantitative-aptitude-d157384756.html",
-    downloadUrl: "https://github.com/manjunath5496/Aptitude-Books/raw/master/apt(1).pdf",
+    previewUrl: "https://www.jagranjosh.com/imported/images/E/GK/quantitative-aptitude-by-rs-aggarwal.pdf",
+    downloadUrl: "https://www.jagranjosh.com/imported/images/E/GK/quantitative-aptitude-by-rs-aggarwal.pdf",
   },
   {
     title: "Logical Reasoning Handbook", 
@@ -66,8 +66,8 @@ const studyMaterials = [
     rating: 4.7,
     downloads: "1.9M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.pdfdrive.com/logical-reasoning-d157385946.html",
-    downloadUrl: "https://github.com/manjunath5496/Reasoning-Books/raw/master/re(1).pdf",
+    previewUrl: "https://www.bankersadda.com/pdf/reasoning-book.pdf",
+    downloadUrl: "https://www.bankersadda.com/pdf/reasoning-book.pdf",
   },
   {
     title: "English Grammar & Vocabulary",
@@ -78,8 +78,8 @@ const studyMaterials = [
     rating: 4.5,
     downloads: "1.6M+",
     difficulty: "All Levels",
-    previewUrl: "https://www.pdfdrive.com/english-grammar-vocabulary-d157386842.html",
-    downloadUrl: "https://github.com/manjunath5496/English-Books/raw/master/eng(1).pdf",
+    previewUrl: "https://www.sscadda.com/pdf/english-grammar-book.pdf",
+    downloadUrl: "https://www.sscadda.com/pdf/english-grammar-book.pdf",
   },
   {
     title: "Indian Polity by Laxmikanth",
@@ -90,8 +90,8 @@ const studyMaterials = [
     rating: 4.9,
     downloads: "2.8M+",
     difficulty: "Advanced",
-    previewUrl: "https://www.pdfdrive.com/indian-polity-laxmikanth-d157387953.html",
-    downloadUrl: "https://github.com/manjunath5496/Political-Science-Books/raw/master/pol(1).pdf",
+    previewUrl: "https://www.drishtiias.com/images/pdf/indian-polity-laxmikanth.pdf",
+    downloadUrl: "https://www.drishtiias.com/images/pdf/indian-polity-laxmikanth.pdf",
   },
   {
     title: "Economic Survey 2024",
@@ -102,8 +102,8 @@ const studyMaterials = [
     rating: 4.4,
     downloads: "1.3M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.pdfdrive.com/economic-survey-2024-d189473864.html",
-    downloadUrl: "https://github.com/manjunath5496/Economics-Books/raw/master/eco(1).pdf",
+    previewUrl: "https://www.indiabudget.gov.in/economicsurvey/doc/eschapter/echap01.pdf",
+    downloadUrl: "https://www.indiabudget.gov.in/economicsurvey/doc/eschapter/echap01.pdf",
   },
   {
     title: "Science & Technology Manual",
@@ -114,8 +114,8 @@ const studyMaterials = [
     rating: 4.6,
     downloads: "1.7M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.pdfdrive.com/science-technology-manual-d157389742.html",
-    downloadUrl: "https://github.com/manjunath5496/Science-Books/raw/master/sci(1).pdf",
+    previewUrl: "https://www.drishtiias.com/images/pdf/science-technology-manual.pdf",
+    downloadUrl: "https://www.drishtiias.com/images/pdf/science-technology-manual.pdf",
   }
 ];
 
@@ -142,15 +142,10 @@ const StudyMaterials = () => {
   };
 
   const handleDownload = (material: typeof studyMaterials[0]) => {
-    // Create a temporary link and trigger download
-    const link = document.createElement('a');
-    link.href = material.downloadUrl;
-    link.download = `${material.title}.pdf`;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Direct download from the PDF URL
+    window.open(material.downloadUrl, '_blank');
   };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -308,35 +303,13 @@ const StudyMaterials = () => {
           </DialogHeader>
           <div className="flex-1 overflow-hidden">
             {previewMaterial && (
-              <div className="h-[70vh] bg-gray-100 rounded-lg flex items-center justify-center">
-                <div className="text-center p-8">
-                  <FileText className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">{previewMaterial.title}</h3>
-                  <p className="text-muted-foreground mb-4">{previewMaterial.description}</p>
-                  <div className="flex items-center justify-center gap-4 mb-6">
-                    <Badge className={getCategoryColor(previewMaterial.category)}>
-                      {previewMaterial.category}
-                    </Badge>
-                    <span className="text-sm text-muted-foreground">{previewMaterial.pages}</span>
-                    <span className="text-sm text-muted-foreground">{previewMaterial.size}</span>
-                  </div>
-                  <div className="flex gap-4 justify-center">
-                    <Button 
-                      variant="outline"
-                      onClick={() => window.open(previewMaterial.previewUrl, '_blank')}
-                    >
-                      <Eye className="h-4 w-4 mr-2" />
-                      View Full Preview
-                    </Button>
-                    <Button 
-                      className="bg-primary hover:bg-primary/90"
-                      onClick={() => handleDownload(previewMaterial)}
-                    >
-                      <Download className="h-4 w-4 mr-2" />
-                      Download PDF
-                    </Button>
-                  </div>
-                </div>
+              <div className="h-[70vh] bg-gray-100 rounded-lg overflow-hidden">
+                <iframe
+                  src={`${previewMaterial.previewUrl}#toolbar=0`}
+                  className="w-full h-full border-none"
+                  title={`${previewMaterial.title} Preview`}
+                  loading="lazy"
+                />
               </div>
             )}
           </div>
