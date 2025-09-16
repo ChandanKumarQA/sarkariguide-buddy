@@ -2,9 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Clock, ExternalLink, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const jobs = [
   {
+    id: "railway-technician-2024",
     title: "Indian Railway Recruitment Board - Technician Posts",
     organization: "Railway Recruitment Board",
     location: "All India",
@@ -16,6 +18,7 @@ const jobs = [
     applicationUrl: "https://www.rrbcdg.gov.in/",
   },
   {
+    id: "ssc-cgl-2024",
     title: "SSC Combined Graduate Level Examination 2024",
     organization: "Staff Selection Commission",
     location: "All India",
@@ -27,6 +30,7 @@ const jobs = [
     applicationUrl: "https://ssc.nic.in/",
   },
   {
+    id: "ibps-clerk-2024",
     title: "IBPS Clerk Recruitment 2024",
     organization: "Institute of Banking Personnel Selection",
     location: "All India",
@@ -38,6 +42,7 @@ const jobs = [
     applicationUrl: "https://www.ibps.in/",
   },
   {
+    id: "aiims-nurse-2024",
     title: "AIIMS Staff Nurse Recruitment",
     organization: "All India Institute of Medical Sciences",
     location: "Delhi, Mumbai, Kolkata",
@@ -126,9 +131,11 @@ const LatestJobs = () => {
                 <div className="flex items-center justify-between">
                   <Badge variant="outline">{job.category}</Badge>
                   <div className="flex gap-2">
-                    <Button variant="outline" size="sm">
-                      View Details
-                    </Button>
+                    <Link to={`/job-details/${job.id}`}>
+                      <Button variant="outline" size="sm">
+                        View Details
+                      </Button>
+                    </Link>
                     <Button 
                       size="sm" 
                       className="bg-primary hover:bg-primary/90"
