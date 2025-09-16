@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 
 const examSchedule = [
   {
+    id: "ssc-cgl-tier1-2024",
     title: "SSC CGL Tier-1 Exam",
     organization: "Staff Selection Commission",
     date: "2024-09-25",
@@ -16,6 +17,7 @@ const examSchedule = [
     location: "All India",
   },
   {
+    id: "rrb-ntpc-2024",
     title: "RRB NTPC Exam",
     organization: "Railway Recruitment Board",
     date: "2024-10-15",
@@ -24,6 +26,7 @@ const examSchedule = [
     location: "All India",
   },
   {
+    id: "ibps-clerk-prelims-2024",
     title: "IBPS Clerk Prelims",
     organization: "Institute of Banking Personnel Selection",
     date: "2024-11-02",
@@ -106,9 +109,11 @@ const ExamCalendar = () => {
                   
                   <div className="flex items-center justify-between mt-4">
                     <Badge variant="outline">Government Exam</Badge>
-                    <Button size="sm" variant="outline">
-                      View Details
-                    </Button>
+                    <Link to={`/job-details/${exam.id}`}>
+                      <Button size="sm" variant="outline">
+                        View Details
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>

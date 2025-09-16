@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 
 const railwayJobs = [
   {
+    id: "railway-technician-2024",
     title: "Indian Railway Recruitment Board - Technician Posts",
     organization: "Railway Recruitment Board",
     location: "All India",
@@ -20,6 +21,7 @@ const railwayJobs = [
     eligibility: "ITI/Diploma in relevant trade",
   },
   {
+    id: "rrb-alp-2024",
     title: "RRB Assistant Loco Pilot Recruitment 2024",
     organization: "Railway Recruitment Board",
     location: "All India",
@@ -31,6 +33,7 @@ const railwayJobs = [
     eligibility: "ITI + NCVT/SCVT Certificate",
   },
   {
+    id: "rpf-constable-2024",
     title: "Railway Protection Force Constable",
     organization: "Railway Protection Force",
     location: "All India", 
@@ -42,6 +45,7 @@ const railwayJobs = [
     eligibility: "12th Pass + Physical Standards",
   },
   {
+    id: "station-master-2024",
     title: "Station Master Grade-II Recruitment",
     organization: "Indian Railways",
     location: "Northern Railway",
@@ -53,6 +57,7 @@ const railwayJobs = [
     eligibility: "Graduate + Railway certification",
   },
   {
+    id: "railway-je-2024",
     title: "Junior Engineer (JE) - Civil/Mechanical/Electrical",
     organization: "Railway Recruitment Board",
     location: "All India",
@@ -64,6 +69,7 @@ const railwayJobs = [
     eligibility: "Diploma/B.Tech in relevant field",
   },
   {
+    id: "track-maintainer-2024",
     title: "Track Maintainer Grade-IV",
     organization: "Indian Railways",
     location: "All India",
@@ -197,9 +203,11 @@ const RailwayJobs = () => {
                   <div className="flex items-center justify-between">
                     <Badge variant="outline">Railway</Badge>
                     <div className="flex gap-2">
-                      <Button variant="outline" size="sm">
-                        View Details
-                      </Button>
+                      <Link to={`/job-details/${job.id}`}>
+                        <Button variant="outline" size="sm">
+                          View Details
+                        </Button>
+                      </Link>
                       <Button 
                         size="sm" 
                         className="bg-primary hover:bg-primary/90"
