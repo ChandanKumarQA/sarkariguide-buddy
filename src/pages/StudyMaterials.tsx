@@ -30,8 +30,8 @@ const studyMaterials = [
     rating: 4.7,
     downloads: "1.8M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.drishtiias.com/images/pdf/general-studies-manual.pdf",
-    downloadUrl: "https://www.drishtiias.com/images/pdf/general-studies-manual.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "Current Affairs 2024",
@@ -42,8 +42,8 @@ const studyMaterials = [
     rating: 4.9,
     downloads: "3.2M+",
     difficulty: "All Levels",
-    previewUrl: "https://www.employmentnews.gov.in/pdf/current-affairs-2024.pdf",
-    downloadUrl: "https://www.employmentnews.gov.in/pdf/current-affairs-2024.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "Quantitative Aptitude Guide",
@@ -54,8 +54,8 @@ const studyMaterials = [
     rating: 4.6,
     downloads: "2.1M+", 
     difficulty: "Beginner to Advanced",
-    previewUrl: "https://www.jagranjosh.com/imported/images/E/GK/quantitative-aptitude-by-rs-aggarwal.pdf",
-    downloadUrl: "https://www.jagranjosh.com/imported/images/E/GK/quantitative-aptitude-by-rs-aggarwal.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "Logical Reasoning Handbook", 
@@ -66,8 +66,8 @@ const studyMaterials = [
     rating: 4.7,
     downloads: "1.9M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.bankersadda.com/pdf/reasoning-book.pdf",
-    downloadUrl: "https://www.bankersadda.com/pdf/reasoning-book.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "English Grammar & Vocabulary",
@@ -78,8 +78,8 @@ const studyMaterials = [
     rating: 4.5,
     downloads: "1.6M+",
     difficulty: "All Levels",
-    previewUrl: "https://www.sscadda.com/pdf/english-grammar-book.pdf",
-    downloadUrl: "https://www.sscadda.com/pdf/english-grammar-book.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "Indian Polity by Laxmikanth",
@@ -90,8 +90,8 @@ const studyMaterials = [
     rating: 4.9,
     downloads: "2.8M+",
     difficulty: "Advanced",
-    previewUrl: "https://www.drishtiias.com/images/pdf/indian-polity-laxmikanth.pdf",
-    downloadUrl: "https://www.drishtiias.com/images/pdf/indian-polity-laxmikanth.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "Economic Survey 2024",
@@ -102,8 +102,8 @@ const studyMaterials = [
     rating: 4.4,
     downloads: "1.3M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.indiabudget.gov.in/economicsurvey/doc/eschapter/echap01.pdf",
-    downloadUrl: "https://www.indiabudget.gov.in/economicsurvey/doc/eschapter/echap01.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "Science & Technology Manual",
@@ -114,8 +114,8 @@ const studyMaterials = [
     rating: 4.6,
     downloads: "1.7M+",
     difficulty: "Intermediate",
-    previewUrl: "https://www.drishtiias.com/images/pdf/science-technology-manual.pdf",
-    downloadUrl: "https://www.drishtiias.com/images/pdf/science-technology-manual.pdf",
+    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
   }
 ];
 
