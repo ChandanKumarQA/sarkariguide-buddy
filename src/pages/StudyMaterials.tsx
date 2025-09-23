@@ -18,7 +18,7 @@ const studyMaterials = [
     rating: 4.8,
     downloads: "2.5M+",
     difficulty: "Beginner to Advanced",
-    previewUrl: "https://blogmedia.testbook.com/kmat-kerala/wp-content/uploads/2023/05/lucent-gk-hindi-506d51db.pdf",
+   // previewUrl: "https://blogmedia.testbook.com/kmat-kerala/wp-content/uploads/2023/05/lucent-gk-hindi-506d51db.pdf",
     downloadUrl: "https://blogmedia.testbook.com/kmat-kerala/wp-content/uploads/2023/05/lucent-gk-hindi-506d51db.pdf",
   },
   {
