@@ -19,7 +19,7 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#" className="text-foreground hover:text-primary transition-colors">
+            <a href="/" className="text-foreground hover:text-primary transition-colors">
               Home
             </a>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -34,15 +34,10 @@ const Header = () => {
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
               Syllabus
             </a>
+            <a href="/current-affairs" className="text-muted-foreground hover:text-primary transition-colors">
+              Current Affairs
+            </a>
           </nav>
-
-          {/* Right side actions */}
-          <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="hidden md:flex">
-              <Search className="h-4 w-4" />
-              <span className="ml-2">Search</span>
-            </Button>
-          </div>
         </div>
       </div>
     </header>
