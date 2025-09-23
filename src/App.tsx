@@ -9,6 +9,7 @@ import JobSearch from "./pages/JobSearch";
 import ExamCalendar from "./pages/ExamCalendar";
 import StudyMaterials from "./pages/StudyMaterials";
 import CurrentAffairs from "./pages/CurrentAffairs";
+import AllJobs from "./pages/AllJobs";
 import JobDetails from "./pages/JobDetails";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/exam-calendar" element={<ExamCalendar />} />
           <Route path="/study-materials" element={<StudyMaterials />} />
           <Route path="/current-affairs" element={<CurrentAffairs />} />
+          <Route path="/all-jobs" element={<AllJobs />} />
           <Route path="/job-details/:jobId" element={<JobDetails />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

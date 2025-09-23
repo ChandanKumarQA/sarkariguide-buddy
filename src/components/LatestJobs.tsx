@@ -80,13 +80,12 @@ const LatestJobs = () => {
             </p>
           </div>
           <div className="flex gap-3">
-            <Button variant="outline">
-              View All Jobs
-              <ExternalLink className="ml-2 h-4 w-4" />
-            </Button>
-            <Button className="bg-secondary hover:bg-secondary/90">
-              Subscribe to Alerts
-            </Button>
+            <Link to="/all-jobs">
+              <Button variant="outline">
+                View All Jobs
+                <ExternalLink className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
 

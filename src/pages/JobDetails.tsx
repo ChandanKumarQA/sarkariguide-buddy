@@ -20,6 +20,51 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const jobsData = {
+  "railway-technician-2024": {
+    title: "Indian Railway Recruitment Board - Technician Posts",
+    organization: "Railway Recruitment Board",
+    location: "All India",
+    posts: 25000,
+    lastDate: "2024-10-15",
+    status: "Active",
+    category: "Railway",
+    salaryRange: "₹35,400 - ₹1,12,400",
+    applicationUrl: "https://www.rrbcdg.gov.in/",
+    description: "Railway Recruitment Board is conducting recruitment for Technician posts across various railway zones. This is an excellent opportunity for candidates with technical qualifications to join Indian Railways.",
+    eligibility: {
+      education: "12th Pass + ITI in relevant trade",
+      age: "18-33 years (age relaxation as per government norms)",
+      nationality: "Indian citizen"
+    },
+    examPattern: {
+      tier1: "Computer Based Test (CBT)",
+      tier2: "Physical Efficiency Test (PET)",
+      tier3: "Document Verification",
+      tier4: "Medical Examination"
+    },
+    syllabus: [
+      "General Awareness",
+      "Arithmetic",
+      "General Intelligence & Reasoning",
+      "General Science & Technical Abilities"
+    ],
+    importantDates: [
+      { event: "Application Start Date", date: "2024-08-15" },
+      { event: "Application End Date", date: "2024-10-15" },
+      { event: "Fee Payment Last Date", date: "2024-10-17" },
+      { event: "CBT Exam Date", date: "2024-12-01 to 2024-12-30" }
+    ],
+    applicationFee: {
+      general: "₹500",
+      reserved: "₹250 (for SC/ST/PwD/Ex-servicemen)"
+    },
+    postDetails: [
+      { name: "Technician Signal", vacancies: 8000, payScale: "₹35,400 - ₹1,12,400" },
+      { name: "Technician Telecommunication", vacancies: 5000, payScale: "₹35,400 - ₹1,12,400" },
+      { name: "Technician Electrical", vacancies: 7000, payScale: "₹35,400 - ₹1,12,400" },
+      { name: "Technician Mechanical", vacancies: 5000, payScale: "₹35,400 - ₹1,12,400" }
+    ]
+  },
   "ssc-cgl-2024": {
     title: "SSC Combined Graduate Level Examination 2024",
     organization: "Staff Selection Commission",
@@ -65,6 +110,99 @@ const jobsData = {
       { name: "Sub Inspector (CBI)", vacancies: 500, payScale: "₹35,400 - ₹1,12,400" },
       { name: "Assistant Section Officer", vacancies: 3000, payScale: "₹29,200 - ₹92,300" },
       { name: "Assistant", vacancies: 6200, payScale: "₹25,500 - ₹81,100" }
+    ]
+  },
+  "ibps-clerk-2024": {
+    title: "IBPS Clerk Recruitment 2024",
+    organization: "Institute of Banking Personnel Selection",
+    location: "All India",
+    posts: 8500,
+    lastDate: "2024-10-20",
+    status: "Active",
+    category: "Banking",
+    salaryRange: "₹19,900 - ₹63,200",
+    applicationUrl: "https://www.ibps.in/",
+    description: "IBPS conducts Common Recruitment Process (CRP) for recruitment of Clerks in Public Sector Banks. This is one of the most popular banking examinations in India.",
+    eligibility: {
+      education: "Bachelor's degree in any discipline from a recognized university",
+      age: "20-28 years (age relaxation as per government norms)",
+      nationality: "Indian citizen or subject of Nepal/Bhutan"
+    },
+    examPattern: {
+      tier1: "Preliminary Examination (Online)",
+      tier2: "Main Examination (Online)",
+      tier3: "Language Proficiency Test",
+      tier4: "Interview (if applicable)"
+    },
+    syllabus: [
+      "English Language",
+      "Numerical Ability",
+      "Reasoning Ability",
+      "General Awareness",
+      "Computer Knowledge"
+    ],
+    importantDates: [
+      { event: "Application Start Date", date: "2024-09-01" },
+      { event: "Application End Date", date: "2024-10-20" },
+      { event: "Preliminary Exam", date: "2024-12-07 to 2024-12-08" },
+      { event: "Main Exam", date: "2025-01-19" }
+    ],
+    applicationFee: {
+      general: "₹850",
+      reserved: "₹175 (for SC/ST/PwD)"
+    },
+    postDetails: [
+      { name: "Clerk - State Bank of India", vacancies: 2500, payScale: "₹19,900 - ₹63,200" },
+      { name: "Clerk - Punjab National Bank", vacancies: 1800, payScale: "₹19,900 - ₹63,200" },
+      { name: "Clerk - Bank of Baroda", vacancies: 1500, payScale: "₹19,900 - ₹63,200" },
+      { name: "Clerk - Other Public Banks", vacancies: 2700, payScale: "₹19,900 - ₹63,200" }
+    ]
+  },
+  "aiims-nurse-2024": {
+    title: "AIIMS Staff Nurse Recruitment",
+    organization: "All India Institute of Medical Sciences",
+    location: "Delhi, Mumbai, Kolkata",
+    posts: 1200,
+    lastDate: "2024-09-25",
+    status: "Active",
+    category: "Healthcare",
+    salaryRange: "₹25,500 - ₹81,100",
+    applicationUrl: "https://www.aiims.edu/",
+    description: "AIIMS is recruiting Staff Nurses for various departments. This is an excellent opportunity for nursing professionals to work in premier medical institutions of India.",
+    eligibility: {
+      education: "B.Sc (Hons.) Nursing/Post Basic B.Sc. Nursing from recognized institution",
+      age: "21-30 years (age relaxation as per government norms)",
+      nationality: "Indian citizen"
+    },
+    examPattern: {
+      tier1: "Computer Based Test (CBT)",
+      tier2: "Skill Assessment Test",
+      tier3: "Document Verification",
+      tier4: "Medical Examination"
+    },
+    syllabus: [
+      "Nursing Foundation",
+      "Medical-Surgical Nursing",
+      "Child Health Nursing",
+      "Mental Health Nursing",
+      "Community Health Nursing",
+      "General Knowledge"
+    ],
+    importantDates: [
+      { event: "Application Start Date", date: "2024-08-20" },
+      { event: "Application End Date", date: "2024-09-25" },
+      { event: "CBT Exam Date", date: "2024-10-30" },
+      { event: "Result Declaration", date: "2024-11-15" }
+    ],
+    applicationFee: {
+      general: "₹1000",
+      reserved: "₹800 (for SC/ST/OBC/PwD)"
+    },
+    postDetails: [
+      { name: "Staff Nurse - AIIMS Delhi", vacancies: 400, payScale: "₹25,500 - ₹81,100" },
+      { name: "Staff Nurse - AIIMS Mumbai", vacancies: 350, payScale: "₹25,500 - ₹81,100" },
+      { name: "Staff Nurse - AIIMS Kolkata", vacancies: 300, payScale: "₹25,500 - ₹81,100" },
+      { name: "Staff Nurse - Other AIIMS", vacancies: 150, payScale: "₹25,500 - ₹81,100" }
     ]
   }
 };
