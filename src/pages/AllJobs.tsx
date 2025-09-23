@@ -20,7 +20,7 @@ const allJobs = [
     status: "Active",
     category: "Railway",
     salaryRange: "₹35,400 - ₹1,12,400",
-    applicationUrl: "https://www.rrbcdg.gov.in/",
+    applicationUrl: "https://www.rrbapply.gov.in/#/auth/landing",
     eligibility: "12th Pass + ITI",
     ageLimit: "18-33 years"
   },
