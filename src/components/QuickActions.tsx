@@ -2,24 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { 
-  FileText, 
   Download, 
   Calendar, 
-  Bell, 
-  Search,
+  Bell,
   BookOpen
 } from "lucide-react";
 
 const QuickActions = () => {
   const actions = [
-    {
-      icon: FileText,
-      title: "Application Forms",
-      description: "Download latest job application forms",
-      color: "bg-blue-500",
-      lightColor: "bg-blue-50",
-      link: "/",
-    },
     {
       icon: Download,
       title: "Admit Cards", 
@@ -43,14 +33,6 @@ const QuickActions = () => {
       color: "bg-orange-500",
       lightColor: "bg-orange-50",
       link: "/",
-    },
-    {
-      icon: Search,
-      title: "Job Search",
-      description: "Advanced job search filters",
-      color: "bg-red-500",
-      lightColor: "bg-red-50",
-      link: "/job-search",
     },
     {
       icon: BookOpen,
