@@ -29,7 +29,7 @@ const jobsData = {
     status: "Active",
     category: "Railway",
     salaryRange: "₹35,400 - ₹1,12,400",
-    applicationUrl: "https://www.rrbcdg.gov.in/",
+    applicationUrl: "https://www.rrbapply.gov.in/#/auth/landing",
     description: "Railway Recruitment Board is conducting recruitment for Technician posts across various railway zones. This is an excellent opportunity for candidates with technical qualifications to join Indian Railways.",
     eligibility: {
       education: "12th Pass + ITI in relevant trade",
