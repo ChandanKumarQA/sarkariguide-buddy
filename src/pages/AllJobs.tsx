@@ -219,4 +219,21 @@ const AllJobs = () => {
                     </div>
                     <div className="flex gap-2">
                       <Link to={`/job-details/${job.id}`}>
-                        <Button variant
+                        <Button variant="outline">View Details</Button>
+                      </Link>
+                      <Button>Apply Now</Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default AllJobs;

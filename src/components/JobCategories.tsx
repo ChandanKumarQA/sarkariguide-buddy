@@ -101,9 +101,11 @@ const JobCategories = () => {
               Explore government job opportunities across various sectors and departments
             </p>
           </div>
-          <Button className="mt-4 md:mt-0 bg-primary hover:bg-primary/90">
-            View All Categories
-          </Button>
+          <Link to="/all-jobs">
+            <Button className="mt-4 md:mt-0 bg-primary hover:bg-primary/90">
+              View All Categories
+            </Button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
