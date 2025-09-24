@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Download, ArrowLeft, FileText, Star, Clock, Eye, X } from "lucide-react";
+import { Download, ArrowLeft, FileText, Star, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -134,12 +132,6 @@ const getCategoryColor = (category: string) => {
 };
 
 const StudyMaterials = () => {
-  const [previewMaterial, setPreviewMaterial] = useState<typeof studyMaterials[0] | null>(null);
-
-  const handlePreview = (material: typeof studyMaterials[0]) => {
-    setPreviewMaterial(material);
-  };
-
   const handleDownload = (material: typeof studyMaterials[0]) => {
     // Direct download from the PDF URL
     window.open(material.downloadUrl, '_blank');
@@ -245,14 +237,6 @@ const StudyMaterials = () => {
                     </div>
                     <div className="flex gap-2">
                       <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => handlePreview(material)}
-                      >
-                        <Eye className="h-4 w-4 mr-2" />
-                        Preview
-                      </Button>
-                      <Button 
                         size="sm" 
                         className="bg-primary hover:bg-primary/90"
                         onClick={() => handleDownload(material)}
@@ -284,36 +268,6 @@ const StudyMaterials = () => {
           </div>
         </div>
       </section>
-
-      {/* PDF Preview Modal */}
-      <Dialog open={!!previewMaterial} onOpenChange={() => setPreviewMaterial(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden">
-          <DialogHeader>
-            <DialogTitle className="flex items-center justify-between">
-              <span>{previewMaterial?.title} - Preview</span>
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => setPreviewMaterial(null)}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </DialogTitle>
-          </DialogHeader>
-          <div className="flex-1 overflow-hidden">
-            {previewMaterial && (
-              <div className="h-[70vh] bg-gray-100 rounded-lg overflow-hidden">
-                <iframe
-                  src={`${previewMaterial.previewUrl}#toolbar=0`}
-                  className="w-full h-full border-none"
-                  title={`${previewMaterial.title} Preview`}
-                  loading="lazy"
-                />
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
 
       <Footer />
     </div>
