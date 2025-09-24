@@ -41,8 +41,8 @@ const studyMaterials = [
     rating: 4.9,
     downloads: "3.2M+",
     difficulty: "All Levels",
-    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
-    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    previewUrl: "/pdfs/current-affairs-2024.pdf",
+    downloadUrl: "/pdfs/current-affairs-2024.pdf",
   },
   {
     title: "Quantitative Aptitude Guide",
