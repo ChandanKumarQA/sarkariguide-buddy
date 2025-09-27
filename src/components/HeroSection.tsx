@@ -2,10 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Users, TrendingUp } from "lucide-react";
-
 const HeroSection = () => {
-  return (
-    <section className="bg-gradient-to-br from-primary-light to-secondary-light py-12">
+  return <section className="bg-gradient-to-br from-primary-light to-secondary-light py-12">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
@@ -36,53 +34,9 @@ const HeroSection = () => {
           </div>
 
           {/* Right Content - Stats Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Card className="hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3">
-                  <div className="p-3 bg-primary-light rounded-lg">
-                    <Calendar className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-foreground">1,247</p>
-                    <p className="text-sm text-muted-foreground">Active Jobs</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-md transition-shadow">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3">
-                  <div className="p-3 bg-secondary-light rounded-lg">
-                    <Users className="h-6 w-6 text-secondary" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-foreground">50K+</p>
-                    <p className="text-sm text-muted-foreground">Registered Users</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-md transition-shadow sm:col-span-2">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3">
-                  <div className="p-3 bg-accent-light rounded-lg">
-                    <TrendingUp className="h-6 w-6 text-accent-foreground" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-2xl font-bold text-foreground">95%</p>
-                    <p className="text-sm text-muted-foreground">Success Rate in Placements</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+          
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
