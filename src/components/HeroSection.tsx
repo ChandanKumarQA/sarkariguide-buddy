@@ -13,7 +13,7 @@ const HeroSection = () => {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Your Gateway to
-              <span className="text-primary block">government jobs</span>
+              <span className="text-primary block">Government Jobs</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 max-w-md">
               Stay updated with the latest government job notifications, exam results, and important dates. Your career in public service starts here.
