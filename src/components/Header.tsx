@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
-
 const Header = () => {
-  return (
-    <header className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
+  return <header className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -13,7 +11,7 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold text-foreground">SarkariGuide</h1>
-              <p className="text-xs text-muted-foreground">Government Jobs Portal</p>
+              <p className="text-xs text-muted-foreground">Jobs Portal</p>
             </div>
           </div>
 
@@ -40,8 +38,6 @@ const Header = () => {
           </nav>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
