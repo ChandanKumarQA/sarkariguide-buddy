@@ -1,0 +1,197 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// Job model for government job postings
+model Job {
+  id                String   @id @default(cuid())
+  title             String
+  organization      String
+  location          String
+  posts             Int
+  lastDate          String
+  status            String
+  category          String
+  salaryRange       String
+  applicationUrl    String
+  eligibility       String
+  ageLimit          String
+  notificationNumber String?
+  examDate         String?
+  description      String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  jobDetails        JobDetails?
+  examPatterns     ExamPattern[]
+  importantDates   ImportantDate[]
+  syllabus         Syllabus[]
+  savedJobs        SavedJob[]
+
+  @@map("jobs")
+}
+
+// Detailed job information
+model JobDetails {
+  id          String @id @default(cuid())
+  jobId       String @unique
+  description String
+  eligibility Json   // Store complex eligibility criteria as JSON
+  examPattern Json   // Store exam pattern as JSON
+  applicationFee Json // Store fee structure as JSON
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  job         Job    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@map("job_details")
+}
+
+// Exam pattern for jobs
+model ExamPattern {
+  id          String @id @default(cuid())
+  jobId       String
+  tier        String
+  description String
+  createdAt   DateTime @default(now())
+
+  // Relations
+  job         Job    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@map("exam_patterns")
+}
+
+// Important dates for jobs
+model ImportantDate {
+  id        String @id @default(cuid())
+  jobId     String
+  event     String
+  date      String
+  createdAt DateTime @default(now())
+
+  // Relations
+  job       Job    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@map("important_dates")
+}
+
+// Syllabus for jobs
+model Syllabus {
+  id        String @id @default(cuid())
+  jobId     String
+  subject   String
+  createdAt DateTime @default(now())
+
+  // Relations
+  job       Job    @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@map("syllabus")
+}
+
+// Study materials
+model StudyMaterial {
+  id          String @id @default(cuid())
+  title       String
+  description String
+  category    String
+  size        String
+  pages        String
+  rating       Float
+  downloads    String
+  difficulty  String
+  previewUrl  String
+  downloadUrl String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("study_materials")
+}
+
+// Current affairs questions
+model CurrentAffairsQuestion {
+  id            String @id @default(cuid())
+  question      String
+  options       Json   // Store options as JSON array
+  correctAnswer Int
+  category      String
+  difficulty    String
+  explanation   String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("current_affairs_questions")
+}
+
+// Exam calendar events
+model ExamCalendar {
+  id          String @id @default(cuid())
+  title       String
+  organization String
+  examDate    String
+  lastDate    String
+  category    String
+  description String?
+  applicationUrl String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("exam_calendar")
+}
+
+// User model for future user management
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  phone     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  jobAlerts JobAlert[]
+  savedJobs SavedJob[]
+
+  @@map("users")
+}
+
+// Job alerts for users
+model JobAlert {
+  id        String   @id @default(cuid())
+  userId    String
+  keywords  String
+  category  String?
+  location  String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("job_alerts")
+}
+
+// Saved jobs by users
+model SavedJob {
+  id        String   @id @default(cuid())
+  userId    String
+  jobId     String
+  createdAt DateTime @default(now())
+
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  job       Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, jobId])
+  @@map("saved_jobs")
+}

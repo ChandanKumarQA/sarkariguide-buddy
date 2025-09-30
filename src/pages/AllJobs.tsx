@@ -8,23 +8,9 @@ import { Calendar, MapPin, Clock, Users, ArrowLeft, Search, Filter } from "lucid
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { jobsApi, Job } from "@/lib/database";
 
-interface Job {
-  id: string;
-  title: string;
-  organization: string;
-  location: string;
-  posts: number;
-  lastDate: string;
-  status: string;
-  category: string;
-  salaryRange: string;
-  applicationUrl: string;
-  eligibility: string;
-  ageLimit: string;
-  notificationNumber?: string;
-  examDate?: string;
-}
+// Job interface is now imported from database.ts
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -45,48 +31,29 @@ const AllJobs = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState("All");
 
-  // Fetch jobs dynamically from public/jobs.json
+  // Fetch jobs from database API
   useEffect(() => {
-    fetch("/jobs.json")
-      .then(res => res.json())
-      .then(data => {
-        // Add BSSC job dynamically if not already present
-        const bsscJob: Job = {
-          id: "bssc-office-attendant-2025",
-          title: "BSSC Office Attendant Recruitment 2025",
-          organization: "Bihar Staff Selection Commission (BSSC)",
-          location: "Bihar",
-          posts: 3727,
-          lastDate: "2025-09-24",
-          status: "Active",
-          category: "BSSC",
-          salaryRange: "As per BSSC norms",
-          applicationUrl: "https://bssc.bihar.gov.in",
-          eligibility: "10th Pass (High School) from any recognized board in India",
-          ageLimit: "18-42 years",
-          notificationNumber: "Advt.No. 06/2025",
-          examDate: "To Be Notified"
-        };
+    const fetchJobs = async () => {
+      try {
+        const response = await jobsApi.getAll({
+          category: selectedCategory !== "All" ? selectedCategory : undefined,
+          status: selectedStatus !== "All" ? selectedStatus : undefined,
+          search: searchTerm || undefined,
+        });
+        setJobs(response.jobs);
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+      }
+    };
 
-        const allJobsWithBSSC = [...data];
-        const exists = data.some(job => job.id === bsscJob.id);
-        if (!exists) allJobsWithBSSC.push(bsscJob);
-
-        setJobs(allJobsWithBSSC);
-      })
-      .catch(err => console.error(err));
-  }, []);
+    fetchJobs();
+  }, [selectedCategory, selectedStatus, searchTerm]);
 
   const categories = ["All", ...Array.from(new Set(jobs.map(job => job.category)))];
   const statuses = ["All", ...Array.from(new Set(jobs.map(job => job.status)))];
 
-  const filteredJobs = jobs.filter(job => {
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                          job.organization.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || job.category === selectedCategory;
-    const matchesStatus = selectedStatus === "All" || job.status === selectedStatus;
-    return matchesSearch && matchesCategory && matchesStatus;
-  });
+  // Jobs are now filtered by the API, so we use them directly
+  const filteredJobs = jobs;
 
   return (
     <div className="min-h-screen bg-background">

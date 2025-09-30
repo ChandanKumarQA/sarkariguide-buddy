@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,6 +6,7 @@ import { Download, ArrowLeft, FileText, Star, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { studyMaterialsApi, StudyMaterial } from "@/lib/database";
 
 const studyMaterials = [
   {
@@ -132,7 +134,25 @@ const getCategoryColor = (category: string) => {
 };
 
 const StudyMaterials = () => {
-  const handleDownload = (material: typeof studyMaterials[0]) => {
+  const [materials, setMaterials] = useState<StudyMaterial[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMaterials = async () => {
+      try {
+        const response = await studyMaterialsApi.getAll();
+        setMaterials(response.materials);
+      } catch (error) {
+        console.error('Error fetching study materials:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMaterials();
+  }, []);
+
+  const handleDownload = (material: StudyMaterial) => {
     // Direct download from the PDF URL
     window.open(material.downloadUrl, '_blank');
   };
@@ -183,12 +203,18 @@ const StudyMaterials = () => {
               <Badge variant="outline">English</Badge>
             </div>
             <p className="text-muted-foreground">
-              Showing {studyMaterials.length} study materials available for download
+              Showing {materials.length} study materials available for download
             </p>
           </div>
 
           <div className="grid gap-6">
-            {studyMaterials.map((material, index) => (
+            {loading ? (
+              <div className="text-center py-8">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+                <p className="mt-2 text-muted-foreground">Loading study materials...</p>
+              </div>
+            ) : (
+              materials.map((material, index) => (
               <Card key={index} className="hover:shadow-md transition-shadow">
                 <CardHeader>
                   <div className="flex items-start justify-between">
@@ -248,7 +274,8 @@ const StudyMaterials = () => {
                   </div>
                 </CardContent>
               </Card>
-            ))}
+            ))
+            )}
           </div>
 
           <div className="text-center mt-12">
