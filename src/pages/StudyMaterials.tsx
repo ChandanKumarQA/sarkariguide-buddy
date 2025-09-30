@@ -29,8 +29,8 @@ const studyMaterials = [
     rating: 4.7,
     downloads: "1.5M+",
     difficulty: "Beginner to Advanced",
-    previewUrl: "https://blogmedia.testbook.com/blog/wp-content/uploads/2022/03/best-4000-smart-question-bank-ssc-general-knowledge-in-english-next-generation-smartbook-by-testbook-and-s-chand-026cc109.pdf",
-    downloadUrl: "https://blogmedia.testbook.com/blog/wp-content/uploads/2022/03/best-4000-smart-question-bank-ssc-general-knowledge-in-english-next-generation-smartbook-by-testbook-and-s-chand-026cc109.pdf",
+    previewUrl: "/pdfs/best-4000-smart-question-bank-ssc-general-knowledge-in-english-next-generation-smartbook-by-testbook-and-s-chand-026cc109.pdf",
+    downloadUrl: "/pdfs/best-4000-smart-question-bank-ssc-general-knowledge-in-english-next-generation-smartbook-by-testbook-and-s-chand-026cc109.pdf",
   },
   {
     title: "Current Affairs 2024",
@@ -53,8 +53,8 @@ const studyMaterials = [
     rating: 4.6,
     downloads: "2.1M+", 
     difficulty: "Beginner to Advanced",
-    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
-    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    previewUrl: "/pdfs/lucent-publications-gk.pdf",
+    downloadUrl: "/pdfs/lucent-publications-gk.pdf",
   },
   {
     title: "Logical Reasoning Handbook", 
@@ -65,8 +65,8 @@ const studyMaterials = [
     rating: 4.7,
     downloads: "1.9M+",
     difficulty: "Intermediate",
-    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
-    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    previewUrl: "/pdfs/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "/pdfs/lucent-publications-gk.pdf",
   },
   {
     title: "English Grammar & Vocabulary",
@@ -77,8 +77,8 @@ const studyMaterials = [
     rating: 4.5,
     downloads: "1.6M+",
     difficulty: "All Levels",
-    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
-    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    previewUrl: "/pdfs/lucent-publications-gk.pdf",
+    downloadUrl: "/pdfs/ucent-publications-gk.pdf",
   },
   {
     title: "Indian Polity by Laxmikanth",
@@ -89,8 +89,8 @@ const studyMaterials = [
     rating: 4.9,
     downloads: "2.8M+",
     difficulty: "Advanced",
-    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
-    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    previewUrl: "/pdfs/2018/01/lucent-publications-gk.pdf",
+    downloadUrl: "/pdfs/2018/01/lucent-publications-gk.pdf",
   },
   {
     title: "Economic Survey 2024",
@@ -101,8 +101,8 @@ const studyMaterials = [
     rating: 4.4,
     downloads: "1.3M+",
     difficulty: "Intermediate",
-    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
-    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    previewUrl: "/pdfs/lucent-publications-gk.pdf",
+    downloadUrl: "/pdfs/lucent-publications-gk.pdf",
   },
   {
     title: "Science & Technology Manual",
@@ -113,8 +113,8 @@ const studyMaterials = [
     rating: 4.6,
     downloads: "1.7M+",
     difficulty: "Intermediate",
-    previewUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
-    downloadUrl: "https://akulprakash93.wordpress.com/wp-content/uploads/2018/01/lucent-publications-gk.pdf",
+    previewUrl: "/pdfs/lucent-publications-gk.pdf",
+    downloadUrl: "/pdfs/lucent-publications-gk.pdf",
   }
 ];
 
