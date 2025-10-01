@@ -11,13 +11,13 @@ import {
 const QuickActions = () => {
   const actions = [
     {
-      icon: Download,
-      title: "Admit Cards", 
-      description: "Download your exam admit cards",
-      color: "bg-green-500",
-      lightColor: "bg-green-50",
-      link: "/Admit Cards",
-    },
+    icon: Download,
+    title: "Admit Cards",
+    description: "Download your exam admit cards",
+    color: "bg-green-500",
+    lightColor: "bg-green-50",
+    link: "/admit-cards",
+  },
     {
       icon: Trophy,
       title: "Results",
