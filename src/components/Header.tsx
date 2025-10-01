@@ -29,9 +29,6 @@ const Header = () => {
             <a href="/admissions" className="text-muted-foreground hover:text-primary transition-colors">
               Admit Cards
             </a>
-            <a href="/study-materials" className="text-muted-foreground hover:text-primary transition-colors">
-              Syllabus
-            </a>
             <a href="/current-affairs" className="text-muted-foreground hover:text-primary transition-colors">
               Current Affairs
             </a>
