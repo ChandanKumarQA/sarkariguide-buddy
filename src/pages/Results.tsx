@@ -14,7 +14,7 @@ const Results = () => {
       date: "28 Sept 2024",
       status: "Declared",
       category: "SSC",
-      link: "#",
+      link: "https://ssc.gov.in/login",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const Results = () => {
       date: "25 Sept 2024",
       status: "Declared",
       category: "SSC",
-      link: "#",
+      link: "https://ssc.gov.in/login",
     },
     {
       id: 3,
