@@ -16,7 +16,7 @@ const QuickActions = () => {
       description: "Download your exam admit cards",
       color: "bg-green-500",
       lightColor: "bg-green-50",
-      link: "/",
+      link: "/Admit Cards",
     },
     {
       icon: Trophy,
