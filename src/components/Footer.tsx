@@ -61,35 +61,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">Stay Updated</h4>
-            <p className="text-sm text-muted-foreground mb-4">
-              Subscribe to get latest job notifications directly in your inbox.
-            </p>
-            <div className="flex gap-2">
-              <Input 
-                type="email" 
-                placeholder="Enter your email"
-                className="flex-1"
-              />
-              <Button size="sm">
-                Subscribe
-              </Button>
-            </div>
-            
-            <div className="mt-6 space-y-2">
-              <div className="flex items-center text-sm text-muted-foreground">
-                <Mail className="h-4 w-4 mr-2" />
-                contact@sarkariguide.com
-              </div>
-              <div className="flex items-center text-sm text-muted-foreground">
-                <Phone className="h-4 w-4 mr-2" />
-                +91 9876543210
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
