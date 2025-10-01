@@ -3,8 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { 
   Download, 
-  Calendar, 
-  Bell,
+  Trophy, 
+  GraduationCap,
   BookOpen
 } from "lucide-react";
 
@@ -19,20 +19,20 @@ const QuickActions = () => {
       link: "/",
     },
     {
-      icon: Calendar,
-      title: "Exam Calendar",
-      description: "View upcoming exam dates",
+      icon: Trophy,
+      title: "Results",
+      description: "Check latest exam results",
       color: "bg-purple-500",
       lightColor: "bg-purple-50",
-      link: "/exam-calendar",
+      link: "/results",
     },
     {
-      icon: Bell,
-      title: "Job Alerts",
-      description: "Set up personalized job notifications",
+      icon: GraduationCap,
+      title: "Admissions",
+      description: "Apply for entrance exams and admissions",
       color: "bg-orange-500",
       lightColor: "bg-orange-50",
-      link: "/",
+      link: "/admissions",
     },
     {
       icon: BookOpen,

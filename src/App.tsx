@@ -11,6 +11,8 @@ import StudyMaterials from "./pages/StudyMaterials";
 import CurrentAffairs from "./pages/CurrentAffairs";
 import AllJobs from "./pages/AllJobs";
 import JobDetails from "./pages/JobDetails";
+import Results from "./pages/Results";
+import Admissions from "./pages/Admissions";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
           <Route path="/current-affairs" element={<CurrentAffairs />} />
           <Route path="/all-jobs" element={<AllJobs />} />
           <Route path="/job-details/:jobId" element={<JobDetails />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/admissions" element={<Admissions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
