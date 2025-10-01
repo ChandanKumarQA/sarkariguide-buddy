@@ -3,123 +3,168 @@ import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, FileText, TrendingUp } from "lucide-react";
+import { ExternalLink, Calendar, Clock, IndianRupee } from "lucide-react";
 
-const Results = () => {
-  const results = [
+const Admissions = () => {
+  const admissions = [
     {
       id: 1,
-      title: "SSC CGL 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "28 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
+      title: "GATE 2026",
+      fullName: "Graduate Aptitude Test in Engineering",
+      organization: "IIT (Organizing Institute)",
+      startDate: "30 Aug 2025",
+      lastDate: "06 Oct 2025",
+      examDate: "7-8 & 14-15 Feb 2026",
+      fee: "₹2,000 (indicative)",
+      status: "Open",
+      category: "Engineering",
+      // Use the official GATE 2026 site/GOAPS announced for 2026
+      link: "https://gate2026.iitg.ac.in",
     },
     {
       id: 2,
-      title: "SSC CHSL 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "25 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
+      title: "JEE Main 2025",
+      fullName: "Joint Entrance Examination Main",
+      organization: "NTA",
+      startDate: "Session 1/2 per NTA",
+      lastDate: "As per NTA notice",
+      examDate: "Jan/Apr 2025 (per session)",
+      fee: "₹1,000",
+      status: "Closed",
+      category: "Engineering",
+      // Official site + NIC application portal for 2025
+      link: "https://jeemain.nta.nic.in",
     },
     {
       id: 3,
-      title: "UPSC CSE Mains 2024 Result",
-      organization: "Union Public Service Commission",
-      date: "22 Sept 2024",
-      status: "Declared",
-      category: "UPSC",
-      link: "https://www.upsc.gov.in/examinations/",
+      title: "NEET UG 2025",
+      fullName: "National Eligibility Entrance Test",
+      organization: "NTA",
+      startDate: "07 Feb 2025",
+      lastDate: "07 Mar 2025",
+      examDate: "04 May 2025",
+      fee: "₹1,700",
+      status: "Closed",
+      category: "Medical",
+      // Official site; application ran on NIC portal
+      link: "https://neet.nta.nic.in",
     },
     {
       id: 4,
-      title: "Railway RRB NTPC Result",
-      organization: "Railway Recruitment Board",
-      date: "20 Sept 2024",
-      status: "Declared",
-      category: "Railway",
-      link: "https://www.rrbcdg.gov.in/",
+      title: "BCECE 2025",
+      fullName: "Bihar Combined Entrance Competitive Examination",
+      organization: "BCECE Board",
+      startDate: "As per BCECEB",
+      lastDate: "As per BCECEB",
+      examDate: "As per BCECEB",
+      fee: "As notified",
+      status: "Opening Soon",
+      category: "Engineering",
+      // BCECE Board official portal
+      link: "https://bceceboard.bihar.gov.in",
     },
     {
       id: 5,
-      title: "IBPS PO Prelims Result 2024",
-      organization: "Institute of Banking Personnel Selection",
-      date: "18 Sept 2024",
-      status: "Declared",
-      category: "Banking",
-      link: "https://www.ibps.in/",
+      title: "DCECE",
+      fullName: "Diploma Certificate Entrance Competitive Exam (Bihar)",
+      organization: "BCECE Board",
+      startDate: "As per BCECEB",
+      lastDate: "As per BCECEB",
+      examDate: "As per BCECEB",
+      fee: "As notified",
+      status: "Opening Soon",
+      category: "Engineering",
+      // Bihar DCECE is under BCECEB; Delhi does not have a 'DCECE Board'
+      link: "https://bceceboard.bihar.gov.in",
     },
     {
       id: 6,
-      title: "SSC MTS 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "15 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
+      title: "CUET 2025",
+      fullName: "Common University Entrance Test",
+      organization: "NTA",
+      startDate: "As per NTA",
+      lastDate: "As per NTA",
+      examDate: "May 2025",
+      fee: "₹800 (UG indicative)",
+      status: "Closed",
+      category: "University",
+      // NTA home for CUET notices
+      link: "https://www.nta.ac.in",
     },
     {
       id: 7,
-      title: "UPPSC PCS Result 2024",
-      organization: "Uttar Pradesh Public Service Commission",
-      date: "12 Sept 2024",
-      status: "Declared",
-      category: "State PSC",
-      link: "https://uppsc.up.nic.in/",
+      title: "CAT 2025",
+      fullName: "Common Admission Test",
+      organization: "IIMs",
+      startDate: "Aug 2025 (expected)",
+      lastDate: "Sep 2025 (expected)",
+      examDate: "Nov 2025",
+      fee: "As notified",
+      status: "Opening Soon",
+      category: "Management",
+      // Official CAT portal (hosted by convening IIM yearly)
+      link: "https://iimcat.ac.in",
     },
     {
       id: 8,
-      title: "SSC JE 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "10 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
+      title: "CLAT 2025",
+      fullName: "Common Law Admission Test",
+      organization: "Consortium of NLUs",
+      startDate: "As per Consortium",
+      lastDate: "15 Oct 2025",
+      examDate: "Dec 2025",
+      fee: "₹4,000",
+      status: "Open",
+      category: "Law",
+      // Consortium official site
+      link: "https://consortiumofnlus.ac.in",
     },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
+      
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-3">
-            Latest Results
+            Admission Forms
           </h1>
           <p className="text-muted-foreground text-lg">
-            Check all government exam results including SSC, UPSC, Railway, Banking and more
+            Apply for entrance exams including GATE, JEE, NEET, BCECE, DCECE and more
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {results.map((result) => (
-            <Card key={result.id} className="hover:shadow-lg transition-shadow">
+          {admissions.map((admission) => (
+            <Card key={admission.id} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start justify-between mb-2">
-                  <Badge variant="secondary">{result.category}</Badge>
-                  <Badge className="bg-green-500 hover:bg-green-600 text-white">
-                    {result.status}
+                  <Badge variant="secondary">{admission.category}</Badge>
+                  <Badge className="bg-blue-500 hover:bg-blue-600 text-white">
+                    {admission.status}
                   </Badge>
                 </div>
-                <CardTitle className="text-xl mb-2">{result.title}</CardTitle>
+                <CardTitle className="text-xl mb-1">{admission.title}</CardTitle>
+                <p className="text-sm text-muted-foreground">{admission.fullName}</p>
               </CardHeader>
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex items-center text-sm text-muted-foreground">
-                    <FileText className="h-4 w-4 mr-2" />
-                    <span>{result.organization}</span>
+                    <Calendar className="h-4 w-4 mr-2 shrink-0" />
+                    <span>Apply: {admission.startDate} - {admission.lastDate}</span>
                   </div>
                   <div className="flex items-center text-sm text-muted-foreground">
-                    <TrendingUp className="h-4 w-4 mr-2" />
-                    <span>Declared on: {result.date}</span>
+                    <Clock className="h-4 w-4 mr-2 shrink-0" />
+                    <span>Exam: {admission.examDate}</span>
+                  </div>
+                  <div className="flex items-center text-sm text-muted-foreground">
+                    <IndianRupee className="h-4 w-4 mr-2 shrink-0" />
+                    <span>Fee: {admission.fee}</span>
                   </div>
                   <Button className="w-full mt-4" asChild>
-                    <a href={result.link} target="_blank" rel="noopener noreferrer">
-                      Check Result
+                    <a href={admission.link} target="_blank" rel="noopener noreferrer">
+                      Apply Now
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -135,4 +180,4 @@ const Results = () => {
   );
 };
 
-export default Results;
+export default Admissions;
