@@ -14,7 +14,7 @@ const Results = () => {
       date: "28 Sept 2024",
       status: "Declared",
       category: "SSC",
-      link: "https://ssc.gov.in/login",
+      link: "https://ssc.gov.in/",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const Results = () => {
       date: "25 Sept 2024",
       status: "Declared",
       category: "SSC",
-      link: "https://ssc.gov.in/login",
+      link: "https://ssc.gov.in/",
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const Results = () => {
       date: "22 Sept 2024",
       status: "Declared",
       category: "UPSC",
-      link: "#",
+      link: "https://www.upsc.gov.in/examinations/",
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ const Results = () => {
       date: "20 Sept 2024",
       status: "Declared",
       category: "Railway",
-      link: "#",
+      link: "https://www.rrbcdg.gov.in/",
     },
     {
       id: 5,
@@ -50,7 +50,7 @@ const Results = () => {
       date: "18 Sept 2024",
       status: "Declared",
       category: "Banking",
-      link: "#",
+      link: "https://www.ibps.in/",
     },
     {
       id: 6,
@@ -59,7 +59,7 @@ const Results = () => {
       date: "15 Sept 2024",
       status: "Declared",
       category: "SSC",
-      link: "#",
+      link: "https://ssc.gov.in/",
     },
     {
       id: 7,
@@ -68,7 +68,7 @@ const Results = () => {
       date: "12 Sept 2024",
       status: "Declared",
       category: "State PSC",
-      link: "#",
+      link: "https://uppsc.up.nic.in/",
     },
     {
       id: 8,
@@ -77,16 +77,15 @@ const Results = () => {
       date: "10 Sept 2024",
       status: "Declared",
       category: "SSC",
-      link: "#",
+      link: "https://ssc.gov.in/",
     },
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
-        {/* Header Section */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-3">
             Latest Results
@@ -96,7 +95,6 @@ const Results = () => {
           </p>
         </div>
 
-        {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {results.map((result) => (
             <Card key={result.id} className="hover:shadow-lg transition-shadow">
