@@ -13,6 +13,10 @@ import AllJobs from "./pages/AllJobs";
 import JobDetails from "./pages/JobDetails";
 import Results from "./pages/Results";
 import Admissions from "./pages/Admissions";
+import SSCJobs from "./pages/SSCJobs";
+import UPSCJobs from "./pages/UPSCJobs";
+import JudicialJobs from "./pages/JudicialJobs";
+import BankingJobs from "./pages/BankingJobs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +38,10 @@ const App = () => (
           <Route path="/job-details/:jobId" element={<JobDetails />} />
           <Route path="/results" element={<Results />} />
           <Route path="/admissions" element={<Admissions />} />
+          <Route path="/ssc-jobs" element={<SSCJobs />} />
+          <Route path="/upsc-jobs" element={<UPSCJobs />} />
+          <Route path="/judicial-jobs" element={<JudicialJobs />} />
+          <Route path="/banking-jobs" element={<BankingJobs />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

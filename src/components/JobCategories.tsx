@@ -30,7 +30,7 @@ const categories = [
     description: "SBI, IBPS, RBI job notifications",
     color: "bg-green-500",
     lightColor: "bg-green-50",
-    link: "#",
+    link: "/banking-jobs",
   },
   {
     title: "Defence",
@@ -39,7 +39,7 @@ const categories = [
     description: "Army, Navy, Air Force recruitments",
     color: "bg-red-500",
     lightColor: "bg-red-50",
-    link: "#",
+    link: "/all-jobs",
   },
   {
     title: "Teaching",
@@ -48,7 +48,7 @@ const categories = [
     description: "Teaching jobs in govt schools & colleges",
     color: "bg-purple-500",
     lightColor: "bg-purple-50",
-    link: "#",
+    link: "/all-jobs",
   },
   {
     title: "SSC Jobs",
@@ -57,7 +57,7 @@ const categories = [
     description: "Staff Selection Commission posts",
     color: "bg-orange-500",
     lightColor: "bg-orange-50",
-    link: "#",
+    link: "/ssc-jobs",
   },
   {
     title: "Healthcare",
@@ -66,7 +66,7 @@ const categories = [
     description: "Medical officer & nursing positions",
     color: "bg-pink-500",
     lightColor: "bg-pink-50",
-    link: "#",
+    link: "/all-jobs",
   },
   {
     title: "Judicial",
@@ -75,7 +75,7 @@ const categories = [
     description: "Court clerk & judicial officer posts",
     color: "bg-indigo-500",
     lightColor: "bg-indigo-50",
-    link: "#",
+    link: "/judicial-jobs",
   },
   {
     title: "UPSC",
@@ -84,7 +84,7 @@ const categories = [
     description: "Civil services & IAS/IPS positions",
     color: "bg-teal-500",
     lightColor: "bg-teal-50",
-    link: "#",
+    link: "/upsc-jobs",
   },
 ];
 

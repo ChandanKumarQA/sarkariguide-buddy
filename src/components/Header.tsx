@@ -20,16 +20,16 @@ const Header = () => {
             <a href="/" className="text-foreground hover:text-primary transition-colors">
               Home
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/all-jobs" className="text-muted-foreground hover:text-primary transition-colors">
               Latest Jobs
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/results" className="text-muted-foreground hover:text-primary transition-colors">
               Results
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/admissions" className="text-muted-foreground hover:text-primary transition-colors">
               Admit Cards
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+            <a href="/study-materials" className="text-muted-foreground hover:text-primary transition-colors">
               Syllabus
             </a>
             <a href="/current-affairs" className="text-muted-foreground hover:text-primary transition-colors">
