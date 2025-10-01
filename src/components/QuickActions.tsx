@@ -17,6 +17,7 @@ const QuickActions = () => {
     color: "bg-green-500",
     lightColor: "bg-green-50",
     link: "/admit-cards",
+      
   },
     {
       icon: Trophy,
