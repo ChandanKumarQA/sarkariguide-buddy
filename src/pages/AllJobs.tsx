@@ -8,203 +8,7 @@ import { Calendar, MapPin, Clock, Users, ArrowLeft, Search, Filter } from "lucid
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { jobsApi, Job } from "@/lib/database";
-
-// Fallback data with diverse job categories
-const fallbackJobs: Job[] = [
-  {
-    id: "aiims-staff-nurse-2024",
-    title: "AIIMS Staff Nurse Recruitment 2024",
-    organization: "All India Institute of Medical Sciences",
-    location: "Delhi, Mumbai, Bangalore",
-    posts: 1500,
-    lastDate: "2024-10-25",
-    status: "Active",
-    category: "Medical",
-    salaryRange: "₹44,900 - ₹1,42,400",
-    applicationUrl: "https://www.aiims.edu/",
-    eligibility: "B.Sc Nursing",
-    ageLimit: "21-35 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "railway-technician-2024",
-    title: "Indian Railway Recruitment Board - Technician Posts",
-    organization: "Railway Recruitment Board",
-    location: "All India",
-    posts: 25000,
-    lastDate: "2024-10-15",
-    status: "Active",
-    category: "Railway",
-    salaryRange: "₹35,400 - ₹1,12,400",
-    applicationUrl: "https://www.rrbcdg.gov.in/",
-    eligibility: "ITI/Diploma",
-    ageLimit: "18-33 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "ssc-cgl-2024",
-    title: "SSC Combined Graduate Level Examination 2024",
-    organization: "Staff Selection Commission",
-    location: "All India",
-    posts: 15000,
-    lastDate: "2024-09-30",
-    status: "Closing Soon",
-    category: "SSC",
-    salaryRange: "₹29,200 - ₹92,300",
-    applicationUrl: "https://ssc.nic.in/",
-    eligibility: "Graduate",
-    ageLimit: "18-30 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "ibps-clerk-2024",
-    title: "IBPS Clerk Recruitment 2024",
-    organization: "Institute of Banking Personnel Selection",
-    location: "All India",
-    posts: 8500,
-    lastDate: "2024-10-20",
-    status: "Active",
-    category: "Banking",
-    salaryRange: "₹19,900 - ₹63,200",
-    applicationUrl: "https://www.ibps.in/",
-    eligibility: "Graduate",
-    ageLimit: "20-28 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "upsc-ias-2024",
-    title: "UPSC Civil Services Examination 2024",
-    organization: "Union Public Service Commission",
-    location: "All India",
-    posts: 1000,
-    lastDate: "2024-10-30",
-    status: "Active",
-    category: "UPSC",
-    salaryRange: "₹56,100 - ₹2,50,000",
-    applicationUrl: "https://www.upsc.gov.in/",
-    eligibility: "Graduate",
-    ageLimit: "21-32 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "high-court-clerk-2024",
-    title: "High Court Clerk Recruitment 2024",
-    organization: "Delhi High Court",
-    location: "Delhi",
-    posts: 450,
-    lastDate: "2024-10-18",
-    status: "Active",
-    category: "Judicial",
-    salaryRange: "₹25,500 - ₹81,100",
-    applicationUrl: "https://www.delhihighcourt.nic.in/",
-    eligibility: "Graduate",
-    ageLimit: "18-27 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "tgt-teacher-2024",
-    title: "TGT (Trained Graduate Teacher) Recruitment 2024",
-    organization: "Kendriya Vidyalaya Sangathan",
-    location: "All India",
-    posts: 3500,
-    lastDate: "2024-11-05",
-    status: "Active",
-    category: "Teaching",
-    salaryRange: "₹44,900 - ₹1,42,400",
-    applicationUrl: "https://kvsangathan.nic.in/",
-    eligibility: "B.Ed + Graduate",
-    ageLimit: "21-35 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "junior-engineer-2024",
-    title: "Junior Engineer (Civil) Recruitment 2024",
-    organization: "PWD Department",
-    location: "Multiple States",
-    posts: 2800,
-    lastDate: "2024-10-22",
-    status: "Active",
-    category: "Engineering",
-    salaryRange: "₹35,400 - ₹1,12,400",
-    applicationUrl: "https://www.pwd.gov.in/",
-    eligibility: "Diploma/B.Tech Civil",
-    ageLimit: "18-32 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "pharmacist-govt-2024",
-    title: "Government Hospital Pharmacist Recruitment",
-    organization: "Department of Health & Family Welfare",
-    location: "Various Hospitals",
-    posts: 890,
-    lastDate: "2024-10-28",
-    status: "Active",
-    category: "Medical",
-    salaryRange: "₹25,500 - ₹81,100",
-    applicationUrl: "https://www.health.gov.in/",
-    eligibility: "D.Pharm/B.Pharm",
-    ageLimit: "18-30 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "police-constable-2024",
-    title: "State Police Constable Recruitment 2024",
-    organization: "State Police Department",
-    location: "State-wide",
-    posts: 5600,
-    lastDate: "2024-11-10",
-    status: "Active",
-    category: "Police",
-    salaryRange: "₹21,700 - ₹69,100",
-    applicationUrl: "https://www.police.gov.in/",
-    eligibility: "12th Pass",
-    ageLimit: "18-25 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "lab-technician-2024",
-    title: "Medical Laboratory Technician Posts",
-    organization: "Government Medical College",
-    location: "Multiple Cities",
-    posts: 670,
-    lastDate: "2024-10-20",
-    status: "Active",
-    category: "Medical",
-    salaryRange: "₹25,500 - ₹81,100",
-    applicationUrl: "https://www.gmc.edu/",
-    eligibility: "DMLT/BMLT",
-    ageLimit: "18-32 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-  {
-    id: "forest-guard-2024",
-    title: "Forest Guard Recruitment 2024",
-    organization: "Forest Department",
-    location: "All India",
-    posts: 1200,
-    lastDate: "2024-10-15",
-    status: "Closing Soon",
-    category: "Defence",
-    salaryRange: "₹21,700 - ₹69,100",
-    applicationUrl: "https://www.forest.gov.in/",
-    eligibility: "12th Pass",
-    ageLimit: "18-28 years",
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-  },
-];
+import { Job } from "@/lib/database";
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -227,37 +31,44 @@ const AllJobs = () => {
   const [selectedLocation, setSelectedLocation] = useState("All");
   const [selectedEducation, setSelectedEducation] = useState("All");
 
-  // Fetch jobs from database API
+  // Fetch jobs from job.json file
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await jobsApi.getAll({
-          category: selectedCategory !== "All" ? selectedCategory : undefined,
-          status: selectedStatus !== "All" ? selectedStatus : undefined,
-          search: searchTerm || undefined,
-        });
-        setJobs(response.jobs);
+        const response = await fetch('/job.json');
+        const data = await response.json();
+        // Add createdAt and updatedAt for compatibility
+        const jobsWithTimestamps = data.map((job: any) => ({
+          ...job,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        }));
+        setJobs(jobsWithTimestamps);
       } catch (error) {
-        console.error('Error fetching jobs:', error);
-        // Use fallback data if API fails
-        setJobs(fallbackJobs);
+        console.error('Error fetching jobs from JSON:', error);
       }
     };
 
     fetchJobs();
-  }, [selectedCategory, selectedStatus, searchTerm]);
+  }, []);
 
-  const categories = ["All", "Railway", "Banking", "SSC", "UPSC", "Medical", "Teaching", "Engineering", "Judicial", "Police", "Defence", "Healthcare"];
-  const statuses = ["All", "Active", "Closing Soon", "Closed"];
-  const locations = ["All", "All India", "Delhi", "Mumbai", "Bangalore", "Multiple States", "State-wide", "Multiple Cities"];
-  const educations = ["All", "12th Pass", "Graduate", "Post Graduate", "ITI/Diploma", "B.Ed", "B.Tech", "B.Sc Nursing", "B.Pharm"];
-
-  // Client-side filtering for location and education
+  // Client-side filtering
   const filteredJobs = jobs.filter(job => {
+    const matchesSearch = searchTerm === "" || 
+      job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      job.organization.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "All" || job.category === selectedCategory;
+    const matchesStatus = selectedStatus === "All" || job.status === selectedStatus;
     const matchesLocation = selectedLocation === "All" || job.location.includes(selectedLocation);
     const matchesEducation = selectedEducation === "All" || job.eligibility.includes(selectedEducation);
-    return matchesLocation && matchesEducation;
+    return matchesSearch && matchesCategory && matchesStatus && matchesLocation && matchesEducation;
   });
+
+  // Get unique categories from jobs
+  const categories = ["All", ...Array.from(new Set(jobs.map(job => job.category)))];
+  const statuses = ["All", "Active", "Closing Soon", "Closed"];
+  const locations = ["All", "All India", "Delhi", "Mumbai", "Bangalore", "Multiple States", "State-wide", "Multiple Cities", "Pan India", "Various Centers", "Chandigarh", "Delhi NCR"];
+  const educations = ["All", "10th Pass", "12th Pass", "Graduate", "Post Graduate", "ITI/Diploma", "B.Ed", "B.Tech", "B.Tech/B.E", "B.Sc Nursing", "B.Pharm", "D.Pharm", "DMLT/BMLT", "Diploma Radiology", "B.Tech/Diploma", "Diploma/B.Tech"];
 
   return (
     <div className="min-h-screen bg-background">

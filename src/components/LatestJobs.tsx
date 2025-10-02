@@ -3,57 +3,20 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, Clock, ExternalLink, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const jobs = [
-  {
-    id: "railway-technician-2024",
-    title: "Indian Railway Recruitment Board - Technician Posts",
-    organization: "Railway Recruitment Board",
-    location: "All India",
-    posts: 25000,
-    lastDate: "2024-10-15",
-    status: "Active",
-    category: "Railway",
-    salaryRange: "₹35,400 - ₹1,12,400",
-    applicationUrl: "https://www.rrbcdg.gov.in/",
-  },
-  {
-    id: "ssc-cgl-2024",
-    title: "SSC Combined Graduate Level Examination 2024",
-    organization: "Staff Selection Commission",
-    location: "All India",
-    posts: 15000,
-    lastDate: "2024-09-30",
-    status: "Closing Soon",
-    category: "SSC",
-    salaryRange: "₹29,200 - ₹92,300",
-    applicationUrl: "https://ssc.nic.in/",
-  },
-  {
-    id: "ibps-clerk-2024",
-    title: "IBPS Clerk Recruitment 2024",
-    organization: "Institute of Banking Personnel Selection",
-    location: "All India",
-    posts: 8500,
-    lastDate: "2024-10-20",
-    status: "Active",
-    category: "Banking",
-    salaryRange: "₹19,900 - ₹63,200",
-    applicationUrl: "https://www.ibps.in/",
-  },
-  {
-    id: "aiims-nurse-2024",
-    title: "AIIMS Staff Nurse Recruitment",
-    organization: "All India Institute of Medical Sciences",
-    location: "Delhi, Mumbai, Kolkata",
-    posts: 1200,
-    lastDate: "2024-09-25",
-    status: "Active",
-    category: "Healthcare",
-    salaryRange: "₹25,500 - ₹81,100",
-    applicationUrl: "https://www.aiims.edu/",
-  },
-];
+interface Job {
+  id: string;
+  title: string;
+  organization: string;
+  location: string;
+  posts: number;
+  lastDate: string;
+  status: string;
+  category: string;
+  salaryRange: string;
+  applicationUrl: string;
+}
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -67,6 +30,22 @@ const getStatusColor = (status: string) => {
 };
 
 const LatestJobs = () => {
+  const [jobs, setJobs] = useState<Job[]>([]);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch('/job.json');
+        const data = await response.json();
+        // Show only the first 4 latest jobs
+        setJobs(data.slice(0, 4));
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+      }
+    };
+
+    fetchJobs();
+  }, []);
   return (
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
