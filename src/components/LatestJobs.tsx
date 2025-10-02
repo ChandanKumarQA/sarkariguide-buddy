@@ -16,6 +16,7 @@ interface Job {
   category: string;
   salaryRange: string;
   applicationUrl: string;
+  image?: string; // <-- optional image url
 }
 
 const getStatusColor = (status: string) => {
@@ -35,17 +36,21 @@ const LatestJobs = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('/job.json');
-        const data = await response.json();
-        // Show only the first 4 latest jobs
+        const response = await fetch("/job.json");
+        const json = await response.json();
+        // If your JSON root is { jobs: [...] } adjust accordingly:
+        const data = Array.isArray(json) ? json : json.jobs ?? [];
         setJobs(data.slice(0, 4));
       } catch (error) {
-        console.error('Error fetching jobs:', error);
+        console.error("Error fetching jobs:", error);
       }
     };
-
     fetchJobs();
   }, []);
+
+  const placeholder =
+    "https://picsum.photos/seed/sarkariguide/600/400"; // fallback image
+
   return (
     <section className="py-16 bg-muted/30">
       <div className="container mx-auto px-4">
@@ -69,43 +74,58 @@ const LatestJobs = () => {
         </div>
 
         <div className="grid gap-6">
-          {jobs.map((job, index) => (
-            <Card key={index} className="hover:shadow-md transition-shadow">
+          {jobs.map((job) => (
+            <Card key={job.id} className="hover:shadow-md transition-shadow">
               <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <CardTitle className="text-xl mb-2 hover:text-primary cursor-pointer transition-colors">
-                      {job.title}
-                    </CardTitle>
-                    <p className="text-muted-foreground font-medium">
-                      {job.organization}
-                    </p>
+                <div className="flex items-start justify-between gap-4">
+                  {/* LEFT: Image + title/org */}
+                  <div className="flex items-center gap-4 flex-1">
+                    <div className="w-28 h-20 rounded-lg overflow-hidden flex-shrink-0 border border-border">
+                      <img
+                        src={job.image ?? placeholder}
+                        alt={job.title}
+                        loading="lazy"
+                        onError={(e) => {
+                          const t = e.currentTarget;
+                          if (t.src !== placeholder) t.src = placeholder;
+                        }}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <div>
+                      <CardTitle className="text-xl mb-1 hover:text-primary cursor-pointer transition-colors">
+                        {job.title}
+                      </CardTitle>
+                      <p className="text-muted-foreground font-medium">{job.organization}</p>
+                    </div>
                   </div>
-                  <Badge className={getStatusColor(job.status)}>
-                    {job.status}
-                  </Badge>
+
+                  {/* RIGHT: status */}
+                  <Badge className={getStatusColor(job.status)}>{job.status}</Badge>
                 </div>
               </CardHeader>
+
               <CardContent>
-                <div className="grid md:grid-cols-4 gap-4 mb-4">
-                  <div className="flex items-center text-sm text-muted-foreground">
+                <div className="grid md:grid-cols-4 gap-4 mb-4 text-sm text-muted-foreground">
+                  <div className="flex items-center">
                     <MapPin className="h-4 w-4 mr-2 text-primary" />
                     {job.location}
                   </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
+                  <div className="flex items-center">
                     <Users className="h-4 w-4 mr-2 text-primary" />
                     {job.posts.toLocaleString()} Posts
                   </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
+                  <div className="flex items-center">
                     <Calendar className="h-4 w-4 mr-2 text-primary" />
                     Last Date: {new Date(job.lastDate).toLocaleDateString()}
                   </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
+                  <div className="flex items-center">
                     <Clock className="h-4 w-4 mr-2 text-primary" />
                     Salary: {job.salaryRange}
                   </div>
                 </div>
-                
+
                 <div className="flex items-center justify-between">
                   <Badge variant="outline">{job.category}</Badge>
                   <div className="flex gap-2">
@@ -114,10 +134,10 @@ const LatestJobs = () => {
                         View Details
                       </Button>
                     </Link>
-                    <Button 
-                      size="sm" 
+                    <Button
+                      size="sm"
                       className="bg-primary hover:bg-primary/90"
-                      onClick={() => window.open(job.applicationUrl, '_blank')}
+                      onClick={() => window.open(job.applicationUrl, "_blank")}
                     >
                       Apply Now
                     </Button>
