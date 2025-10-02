@@ -1,0 +1,37 @@
+    title: "UPSC Engineering Services Mains Result 2025",
+    organization: "UPSC",
+    date: "Released: Oct 2025",
+    status: "Out",
+    category: "Central Government",
+    link: "https://upsc.gov.in",
+  },
+  {
+    id: "aai-junior-senior-assistant-result-2025",
+    title: "AAI Junior/ Senior Assistant Result 2025",
+    organization: "AAI",
+    date: "Released: Oct 2025",
+    status: "Out",
+    category: "Aviation",
+    link: "https://aai.aero",
+  },
+  {
+    id: "upsc-cms-result-2025",
+    title: "UPSC CMS Result 2025",
+    organization: "UPSC",
+    date: "Released: Oct 2025",
+    status: "Out",
+    category: "Medical",
+    link: "https://upsc.gov.in",
+  },
+  {
+    id: "rajasthan-rssb-jail-prahari-score-card-2025",
+    title: "Rajasthan RSSB Jail Prahari Score Card 2025",
+    organization: "RSSB",
+    date: "Released: Oct 2025",
+    status: "Out",
+    category: "State Government",
+    link: "https://rsmssb.rajasthan.gov.in",
+  }
+
+  ]
+}
