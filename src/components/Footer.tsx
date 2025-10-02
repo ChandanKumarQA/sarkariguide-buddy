@@ -1,26 +1,31 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-card border-t border-border">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="bg-primary text-primary-foreground p-2 rounded-lg font-bold text-xl">
-                SG
-              </div>
+              <img
+                src="https://thumbs.dreamstime.com/b/sgj-logo-sgj-letter-sgj-letter-logo-design-initials-sgj-logo-linked-circle-uppercase-monogram-logo-sgj-typography-394766366.jpg?w=768"
+                alt="SarkariGuide Logo"
+                className="w-12 h-12 rounded-full"
+              />
               <div>
                 <h3 className="text-lg font-bold text-foreground">SarkariGuide</h3>
                 <p className="text-xs text-muted-foreground">Government Jobs Portal</p>
               </div>
             </div>
+
             <p className="text-sm text-muted-foreground">
               Your trusted platform for government job notifications, exam updates, and career guidance in the public sector.
             </p>
+
+            {/* Social Icons */}
             <div className="flex space-x-2">
               <Button variant="ghost" size="sm" className="p-2">
                 <Facebook className="h-4 w-4" />
@@ -60,10 +65,9 @@ const Footer = () => {
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Defence</a></li>
             </ul>
           </div>
-
-        
         </div>
 
+        {/* Bottom Bar */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">
             © 2024 SarkariGuide. All rights reserved.
