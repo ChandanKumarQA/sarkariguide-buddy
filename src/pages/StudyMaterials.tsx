@@ -157,7 +157,12 @@ const StudyMaterials = () => {
       } catch (error) {
         console.error('Error fetching study materials:', error);
         // Fallback to hardcoded data if API fails
-        setMaterials(studyMaterials);
+        setMaterials(studyMaterials.map(mat => ({
+          ...mat,
+          id: mat.id.toString(),
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        })));
       } finally {
         setLoading(false);
       }
