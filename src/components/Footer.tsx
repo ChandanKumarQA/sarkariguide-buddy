@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -46,11 +47,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Latest Jobs</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Exam Results</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Admit Cards</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Syllabus</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Previous Papers</a></li>
+              <li><Link to="/all-jobs" className="text-muted-foreground hover:text-primary transition-colors">Latest Jobs</Link></li>
+              <li><Link to="/results" className="text-muted-foreground hover:text-primary transition-colors">Exam Results</Link></li>
+              <li><Link to="/admit-cards" className="text-muted-foreground hover:text-primary transition-colors">Admit Cards</Link></li>
+              <li><Link to="/study-materials" className="text-muted-foreground hover:text-primary transition-colors">Syllabus</Link></li>
+              <li><Link to="/study-materials" className="text-muted-foreground hover:text-primary transition-colors">Previous Papers</Link></li>
             </ul>
           </div>
 
@@ -58,11 +59,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold text-foreground mb-4">Categories</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Railway Jobs</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Banking</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">SSC</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">UPSC</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Defence</a></li>
+              <li><Link to="/railway-jobs" className="text-muted-foreground hover:text-primary transition-colors">Railway Jobs</Link></li>
+              <li><Link to="/banking-jobs" className="text-muted-foreground hover:text-primary transition-colors">Banking</Link></li>
+              <li><Link to="/ssc-jobs" className="text-muted-foreground hover:text-primary transition-colors">SSC</Link></li>
+              <li><Link to="/upsc-jobs" className="text-muted-foreground hover:text-primary transition-colors">UPSC</Link></li>
+              <li><Link to="/all-jobs" className="text-muted-foreground hover:text-primary transition-colors">Defence</Link></li>
             </ul>
           </div>
         </div>
