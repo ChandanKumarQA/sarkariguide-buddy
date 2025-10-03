@@ -40,9 +40,6 @@ const Header = () => {
             <a href="/syllabus" className="text-muted-foreground hover:text-primary transition-colors">
               Syllabus
             </a>
-            <a href="/answer-key" className="text-muted-foreground hover:text-primary transition-colors">
-              Answer Key
-            </a>
             <a href="/current-affairs" className="text-muted-foreground hover:text-primary transition-colors">
               Current Affairs
             </a>
