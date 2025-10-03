@@ -4,82 +4,33 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, FileText, TrendingUp } from "lucide-react";
+import { useEffect, useState } from "react";
+
+interface Result {
+  id: string;
+  title: string;
+  organization: string;
+  date: string;
+  status: string;
+  category: string;
+  link: string;
+}
 
 const Results = () => {
-  const results = [
-    {
-      id: 1,
-      title: "SSC CGL 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "28 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
-    },
-    {
-      id: 2,
-      title: "SSC CHSL 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "25 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
-    },
-    {
-      id: 3,
-      title: "UPSC CSE Mains 2024 Result",
-      organization: "Union Public Service Commission",
-      date: "22 Sept 2024",
-      status: "Declared",
-      category: "UPSC",
-      link: "https://www.upsc.gov.in/examinations/",
-    },
-    {
-      id: 4,
-      title: "Railway RRB NTPC Result",
-      organization: "Railway Recruitment Board",
-      date: "20 Sept 2024",
-      status: "Declared",
-      category: "Railway",
-      link: "https://www.rrbcdg.gov.in/",
-    },
-    {
-      id: 5,
-      title: "IBPS PO Prelims Result 2024",
-      organization: "Institute of Banking Personnel Selection",
-      date: "18 Sept 2024",
-      status: "Declared",
-      category: "Banking",
-      link: "https://www.ibps.in/",
-    },
-    {
-      id: 6,
-      title: "SSC MTS 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "15 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
-    },
-    {
-      id: 7,
-      title: "UPPSC PCS Result 2024",
-      organization: "Uttar Pradesh Public Service Commission",
-      date: "12 Sept 2024",
-      status: "Declared",
-      category: "State PSC",
-      link: "https://uppsc.up.nic.in/",
-    },
-    {
-      id: 8,
-      title: "SSC JE 2024 Result",
-      organization: "Staff Selection Commission",
-      date: "10 Sept 2024",
-      status: "Declared",
-      category: "SSC",
-      link: "https://ssc.gov.in/",
-    },
-  ];
+  const [results, setResults] = useState<Result[]>([]);
+
+  useEffect(() => {
+    const fetchResults = async () => {
+      try {
+        const response = await fetch("/result.json");
+        const data = await response.json();
+        setResults(data.results || []);
+      } catch (error) {
+        console.error("Error fetching results:", error);
+      }
+    };
+    fetchResults();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">

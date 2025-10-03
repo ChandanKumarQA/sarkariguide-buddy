@@ -4,122 +4,38 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Calendar, Clock, IndianRupee } from "lucide-react";
+import { useEffect, useState } from "react";
+
+interface Admission {
+  id: string;
+  title: string;
+  fullName: string;
+  organization: string;
+  category: string;
+  startDate: string;
+  lastDate: string;
+  examDate: string;
+  fee: string;
+  status: string;
+  link: string;
+  year: number;
+}
 
 const Admissions = () => {
-  const admissions = [
-    {
-      id: 1,
-      title: "GATE 2026",
-      fullName: "Graduate Aptitude Test in Engineering",
-      organization: "IIT (Organizing Institute)",
-      startDate: "30 Aug 2025",
-      lastDate: "06 Oct 2025",
-      examDate: "7-8 & 14-15 Feb 2026",
-      fee: "₹2,000 (indicative)",
-      status: "Open",
-      category: "Engineering",
-      // Use the official GATE 2026 site/GOAPS announced for 2026
-      link: "https://gate2026.iitg.ac.in",
-    },
-    {
-      id: 2,
-      title: "JEE Main 2025",
-      fullName: "Joint Entrance Examination Main",
-      organization: "NTA",
-      startDate: "Session 1/2 per NTA",
-      lastDate: "As per NTA notice",
-      examDate: "Jan/Apr 2025 (per session)",
-      fee: "₹1,000",
-      status: "Closed",
-      category: "Engineering",
-      // Official site + NIC application portal for 2025
-      link: "https://jeemain.nta.nic.in",
-    },
-    {
-      id: 3,
-      title: "NEET UG 2025",
-      fullName: "National Eligibility Entrance Test",
-      organization: "NTA",
-      startDate: "07 Feb 2025",
-      lastDate: "07 Mar 2025",
-      examDate: "04 May 2025",
-      fee: "₹1,700",
-      status: "Closed",
-      category: "Medical",
-      // Official site; application ran on NIC portal
-      link: "https://neet.nta.nic.in",
-    },
-    {
-      id: 4,
-      title: "BCECE 2025",
-      fullName: "Bihar Combined Entrance Competitive Examination",
-      organization: "BCECE Board",
-      startDate: "As per BCECEB",
-      lastDate: "As per BCECEB",
-      examDate: "As per BCECEB",
-      fee: "As notified",
-      status: "Opening Soon",
-      category: "Engineering",
-      // BCECE Board official portal
-      link: "https://bceceboard.bihar.gov.in",
-    },
-    {
-      id: 5,
-      title: "DCECE",
-      fullName: "Diploma Certificate Entrance Competitive Exam (Bihar)",
-      organization: "BCECE Board",
-      startDate: "As per BCECEB",
-      lastDate: "As per BCECEB",
-      examDate: "As per BCECEB",
-      fee: "As notified",
-      status: "Opening Soon",
-      category: "Engineering",
-      // Bihar DCECE is under BCECEB; Delhi does not have a 'DCECE Board'
-      link: "https://bceceboard.bihar.gov.in",
-    },
-    {
-      id: 6,
-      title: "CUET 2025",
-      fullName: "Common University Entrance Test",
-      organization: "NTA",
-      startDate: "As per NTA",
-      lastDate: "As per NTA",
-      examDate: "May 2025",
-      fee: "₹800 (UG indicative)",
-      status: "Closed",
-      category: "University",
-      // NTA home for CUET notices
-      link: "https://www.nta.ac.in",
-    },
-    {
-      id: 7,
-      title: "CAT 2025",
-      fullName: "Common Admission Test",
-      organization: "IIMs",
-      startDate: "Aug 2025 (expected)",
-      lastDate: "Sep 2025 (expected)",
-      examDate: "Nov 2025",
-      fee: "As notified",
-      status: "Opening Soon",
-      category: "Management",
-      // Official CAT portal (hosted by convening IIM yearly)
-      link: "https://iimcat.ac.in",
-    },
-    {
-      id: 8,
-      title: "CLAT 2025",
-      fullName: "Common Law Admission Test",
-      organization: "Consortium of NLUs",
-      startDate: "As per Consortium",
-      lastDate: "15 Oct 2025",
-      examDate: "Dec 2025",
-      fee: "₹4,000",
-      status: "Open",
-      category: "Law",
-      // Consortium official site
-      link: "https://consortiumofnlus.ac.in",
-    },
-  ];
+  const [admissions, setAdmissions] = useState<Admission[]>([]);
+
+  useEffect(() => {
+    const fetchAdmissions = async () => {
+      try {
+        const response = await fetch("/admissions.json");
+        const data = await response.json();
+        setAdmissions(data.admissions || []);
+      } catch (error) {
+        console.error("Error fetching admissions:", error);
+      }
+    };
+    fetchAdmissions();
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -152,7 +68,7 @@ const Admissions = () => {
                 <div className="space-y-3">
                   <div className="flex items-center text-sm text-muted-foreground">
                     <Calendar className="h-4 w-4 mr-2 shrink-0" />
-                    <span>Apply: {admission.startDate} - {admission.lastDate}</span>
+                    <span>Apply: {new Date(admission.startDate).toLocaleDateString()} - {new Date(admission.lastDate).toLocaleDateString()}</span>
                   </div>
                   <div className="flex items-center text-sm text-muted-foreground">
                     <Clock className="h-4 w-4 mr-2 shrink-0" />

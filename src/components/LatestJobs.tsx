@@ -40,7 +40,7 @@ const LatestJobs = () => {
         const response = await fetch("/job.json");
         const data = await response.json();
         // Only first 4 latest jobs
-        setJobs(data.slice(0, 4));
+        setJobs(data.jobs?.slice(0, 4) || []);
       } catch (error) {
         console.error("Error fetching jobs:", error);
       }
