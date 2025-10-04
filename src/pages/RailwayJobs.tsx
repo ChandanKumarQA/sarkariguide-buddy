@@ -6,81 +6,22 @@ import { Calendar, MapPin, Users, ExternalLink, ArrowLeft, Search, Filter } from
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useEffect, useState } from "react";
 
-const railwayJobs = [
-  {
-    id: "railway-technician-2024",
-    title: "Indian Railway Recruitment Board - Technician Posts",
-    organization: "Railway Recruitment Board",
-    location: "All India",
-    posts: 25000,
-    lastDate: "2024-10-15",
-    status: "Active",
-    salaryRange: "₹35,400 - ₹1,12,400",
-    applicationUrl: "https://www.rrbcdg.gov.in/",
-    eligibility: "ITI/Diploma in relevant trade",
-  },
-  {
-    id: "rrb-alp-2024",
-    title: "RRB Assistant Loco Pilot Recruitment 2024",
-    organization: "Railway Recruitment Board",
-    location: "All India",
-    posts: 18000,
-    lastDate: "2024-09-28",
-    status: "Closing Soon",
-    salaryRange: "₹19,900 - ₹63,200",
-    applicationUrl: "https://www.rrbcdg.gov.in/",
-    eligibility: "ITI + NCVT/SCVT Certificate",
-  },
-  {
-    id: "rpf-constable-2024",
-    title: "Railway Protection Force Constable",
-    organization: "Railway Protection Force",
-    location: "All India", 
-    posts: 9500,
-    lastDate: "2024-10-30",
-    status: "Active",
-    salaryRange: "₹21,700 - ₹69,100",
-    applicationUrl: "https://www.indianrailways.gov.in/",
-    eligibility: "12th Pass + Physical Standards",
-  },
-  {
-    id: "station-master-2024",
-    title: "Station Master Grade-II Recruitment",
-    organization: "Indian Railways",
-    location: "Northern Railway",
-    posts: 3200,
-    lastDate: "2024-10-12",
-    status: "Active",
-    salaryRange: "₹25,500 - ₹81,100",
-    applicationUrl: "https://www.nr.indianrailways.gov.in/",
-    eligibility: "Graduate + Railway certification",
-  },
-  {
-    id: "railway-je-2024",
-    title: "Junior Engineer (JE) - Civil/Mechanical/Electrical",
-    organization: "Railway Recruitment Board",
-    location: "All India",
-    posts: 14000,
-    lastDate: "2024-11-15",
-    status: "Active",
-    salaryRange: "₹35,400 - ₹1,12,400",
-    applicationUrl: "https://www.rrbcdg.gov.in/",
-    eligibility: "Diploma/B.Tech in relevant field",
-  },
-  {
-    id: "track-maintainer-2024",
-    title: "Track Maintainer Grade-IV",
-    organization: "Indian Railways",
-    location: "All India",
-    posts: 28000,
-    lastDate: "2024-09-22",
-    status: "Closing Soon",
-    salaryRange: "₹18,000 - ₹56,900",
-    applicationUrl: "https://www.indianrailways.gov.in/",
-    eligibility: "10th Pass + Physical fitness",
-  },
-];
+interface Job {
+  id: string;
+  title: string;
+  organization: string;
+  location: string;
+  posts: number;
+  lastDate: string;
+  status: string;
+  category: string;
+  salaryRange: string;
+  applicationUrl: string;
+  eligibility?: string;
+  ageLimit?: string;
+}
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -94,6 +35,31 @@ const getStatusColor = (status: string) => {
 };
 
 const RailwayJobs = () => {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch("/job.json");
+        const data = await response.json();
+        // Filter jobs where category includes "Railway" or organization includes "Railway"/"RRB"
+        const railwayJobs = data.jobs?.filter((job: Job) => 
+          job.category?.toLowerCase().includes("railway") || 
+          job.organization?.toLowerCase().includes("railway") ||
+          job.organization?.toLowerCase().includes("rrb")
+        ) || [];
+        setJobs(railwayJobs);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -153,82 +119,83 @@ const RailwayJobs = () => {
         <div className="container mx-auto px-4">
           <div className="mb-6">
             <p className="text-muted-foreground">
-              Showing {railwayJobs.length} railway job opportunities
+              {loading ? "Loading..." : `Showing ${jobs.length} railway job opportunities`}
             </p>
           </div>
 
-          <div className="grid gap-6">
-            {railwayJobs.map((job, index) => (
-              <Card key={index} className="hover:shadow-md transition-shadow">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-xl mb-2 hover:text-primary cursor-pointer transition-colors">
-                        {job.title}
-                      </CardTitle>
-                      <p className="text-muted-foreground font-medium">
-                        {job.organization}
-                      </p>
+          {loading ? (
+            <p className="text-center text-muted-foreground">Loading jobs...</p>
+          ) : jobs.length === 0 ? (
+            <p className="text-center text-muted-foreground">No railway jobs available at the moment.</p>
+          ) : (
+            <div className="grid gap-6">
+              {jobs.map((job) => (
+                <Card key={job.id} className="hover:shadow-md transition-shadow">
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <CardTitle className="text-xl mb-2 hover:text-primary cursor-pointer transition-colors">
+                          {job.title}
+                        </CardTitle>
+                        <p className="text-muted-foreground font-medium">
+                          {job.organization}
+                        </p>
+                      </div>
+                      <Badge className={getStatusColor(job.status)}>
+                        {job.status}
+                      </Badge>
                     </div>
-                    <Badge className={getStatusColor(job.status)}>
-                      {job.status}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <MapPin className="h-4 w-4 mr-2 text-primary" />
-                      {job.location}
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <MapPin className="h-4 w-4 mr-2 text-primary" />
+                        {job.location}
+                      </div>
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <Users className="h-4 w-4 mr-2 text-primary" />
+                        {job.posts.toLocaleString()} Posts
+                      </div>
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <Calendar className="h-4 w-4 mr-2 text-primary" />
+                        Last Date: {new Date(job.lastDate).toLocaleDateString()}
+                      </div>
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        Salary: {job.salaryRange}
+                      </div>
                     </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Users className="h-4 w-4 mr-2 text-primary" />
-                      {job.posts.toLocaleString()} Posts
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Calendar className="h-4 w-4 mr-2 text-primary" />
-                      Last Date: {new Date(job.lastDate).toLocaleDateString()}
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      Salary: {job.salaryRange}
-                    </div>
-                  </div>
-                  
-                  <div className="mb-4">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-medium">Eligibility:</span> {job.eligibility}
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <Badge variant="outline">Railway</Badge>
-                    <div className="flex gap-2">
-                      <Link to={`/job-details/${job.id}`}>
-                        <Button variant="outline" size="sm">
-                          View Details
+                    
+                    {job.eligibility && (
+                      <div className="mb-4">
+                        <p className="text-sm text-muted-foreground">
+                          <span className="font-medium">Eligibility:</span> {job.eligibility}
+                        </p>
+                      </div>
+                    )}
+                    
+                    <div className="flex items-center justify-between">
+                      <Badge variant="outline">Railway</Badge>
+                      <div className="flex gap-2">
+                        <Link to={`/job-details/${job.id}`}>
+                          <Button variant="outline" size="sm">
+                            View Details
+                          </Button>
+                        </Link>
+                        <Button 
+                          size="sm" 
+                          className="bg-primary hover:bg-primary/90"
+                          onClick={() => window.open(job.applicationUrl, '_blank')}
+                        >
+                          Apply Now
+                          <ExternalLink className="ml-2 h-4 w-4" />
                         </Button>
-                      </Link>
-                      <Button 
-                        size="sm" 
-                        className="bg-primary hover:bg-primary/90"
-                        onClick={() => window.open(job.applicationUrl, '_blank')}
-                      >
-                        Apply Now
-                        <ExternalLink className="ml-2 h-4 w-4" />
-                      </Button>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Load More */}
-          <div className="text-center mt-12">
-            <Button variant="outline" size="lg">
-              Load More Jobs
-            </Button>
-          </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
